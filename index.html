@@ -22,7 +22,7 @@
       <core-scaffold id="scaffold">
         <nav>
           <core-toolbar>Single Page Polymer</core-toolbar>
-          <core-menu valueattr="hash" selected="{{route}}">
+          <core-menu valueattr="hash" selected="{{route}}" on-core-select="{{menuItemSelected}}">
             <template repeat="{{page in pages}}">
               <paper-item icon="label-outline" label="{{page.name}}" hash="{{page.hash}}">
                 <a href="#{{page.hash}}"></a>
