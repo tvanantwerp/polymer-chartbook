@@ -21,10 +21,10 @@
 
       <core-scaffold id="scaffold">
         <nav>
-          <core-menu valueattr="hash" selected="{{route}}" on-core-select="{{menuItemSelected}}">
+          <core-menu valueattr="url" selected="{{route}}" on-core-select="{{menuItemSelected}}">
             <template repeat="{{page in pages}}">
-              <chartbook-item label="{{page.name}}" hash="{{page.hash}}" selected="{{route}}">
-                <a href="#{{page.hash}}"></a>
+              <chartbook-item label="{{page.name}}" url="{{page.url}}" selected="{{route}}">
+                <a href="#{{page.url}}"></a>
               </chartbook-item>
             </template>
           </core-menu>
@@ -35,13 +35,13 @@
         </core-toolbar>
 
         <div layout horizontal center-center fit>
-          <core-animated-pages id="pages" valueattr="hash" selected="{{route}}" transitions="slide-from-right">
+          <core-animated-pages id="pages" valueattr="url" selected="{{route}}" transitions="slide-from-right">
             <template repeat="{{page in pages}}">
-              <section hash="{{page.hash}}" layout>
+              <section url="{{page.url}}" layout>
                 <div>
                   <h1>{{page.name}}</h1>
                   <h2>{{page.subtitle}}</h2>
-                  <img style="width:60%" src="{{page.chart}}" />
+                  <img style="width:70%" src="{{page.chart}}" />
                   <p>{{page.body}}</p>
                   <p>{{page.callout}}</p>
                   <p>{{page.source}}</p>
@@ -56,123 +56,15 @@
 
     <script>
     (function() {
-      var DEFAULT_ROUTE = 'one';
+      var DEFAULT_ROUTE = 'Business-Income-Ebbs-and-Flows-with-the-Economy';
 
       var template = document.querySelector('template[is="auto-binding"]');
-      template.pages = [
-        {
-          hash: 'one',
-          url: 'Business-Income-Ebbs-and-Flows-with-the-Economy',
-          name: 'Business Income Ebbs and Flows with the Economy',
-          subtitle: 'Total Business Income, 1958 to 2011, in Billions of 2013 Dollars',
-          chart: 'images/1_1.svg',
-          share: 'images/page1share.svg',
-          format: 'wide',
-          body: 'Since 1958, total U.S. business income has increased significantly, from just under $500 billion in 1958 to over $2 trillion in 2011 (after adjusting for inflation). However, business income is highly susceptible to the ebb and flow of the economy. While income climbed from $1.2 trillion in 2002 to over $3 trillion in 2005 and 2006, it was halved to $1.5 trillion in 2009. From there, it bounced back slightly, reaching over $2 trillion in 2011.',
-          callout: '',
-          source: 'Source: IRS'
-        },
-        {
-          hash: 'two',
-          url: 'Pass-through-Entities-Are-the-Most-Dominant-Business-Type',
-          name: 'Pass-through Entities Are the Most Dominant Business Type',
-          subtitle: 'Number of Tax Returns for Corporations and Pass-through Entities, 1958 to 2011',
-          chart: 'images/1_2.svg',
-          share: 'images/page2share.svg',
-          format: 'wide',
-          body: 'Businesses in the United States organize into two dominant forms: corporations and pass-through entities (sole proprietorships, partnerships, and S corporations). In the last 50 years, the number of pass-throughs has grown from about 10 million returns in the late 1950s to over 30 million returns today. The Tax Reform Act of 1986, which lowered top tax rates on individuals from 50 percent to 28 percent, made it much more attractive for businesses to pay taxes as pass-throughs rather than as C corporations.',
-          callout: 'Owners of pass-through entities pay taxes on their individual tax returns. Thus, the income is "passed through" the business to the shareholders.',
-          source: ''
-        },
-        {
-          hash: 'three',
-          url: 'Pass-throughs-Now-Earn-More-Business-Income-Than-Corporations',
-          name: 'Pass-throughs Now Earn More Business Income Than Corporations',
-          subtitle: 'Share of Net Income for Passthroughs and C Corporations, 1958 to 2011, in Billions',
-          chart: 'images/1_3.svg',
-          share: 'images/1_3.svg',
-          format: 'wide',
-          body: 'Much of the growth in business income since 1980 has come from pass-through businesses. Pass-throughs now earn over 60 percent of all business income. In 2011, pass-throughs earned $1.3 trillion in business income compared to around $800 billion earned by corporations.',
-          callout:'Corporations saw a huge collapse in their income following the financial market crash, falling from nearly $1.3 trillion in 2007 to $450 billion in 2008.',
-          source: 'Source: IRS.'
-        },
-        {
-          hash: 'four',
-          url: 'Corporations-Make-Up-5-Percent-of-Businesses-but-Earn-62-Percent-of-Revenues',
-          name: 'Corporations Make Up 5 Percent of Businesses but Earn 62 Percent of Revenues',
-          subtitle: 'Share of Firms and Share of Gross Receipts by Firm Type, 2011',
-          chart: 'images/1_4.svg',
-          share: 'images/1_4.svg',
-          format: 'square',
-          body: 'While there are significantly more pass-through entities than C corporations, corporations still earned the largest portion of the $30.9 trillion in total gross receipts in 2011. In all, corporations make up about 5 percent of the 32,500,000 business tax returns but account for 62 percent of all gross receipts with $19 trillion. Pass-throughs make up nearly 95 percent of all firms and account for the remaining 38 percent of gross receipts with $11.8 trillion. Note: This includes all active returns both with and without income.',
-          callout: 'Despite earning $8 trillion less in total gross receipts, pass-throughs earned more net income (over $1.2 trillion) than corporations (over $700 billion) in 2011.',
-          source: 'Source: IRS.'
-        },
-        {
-          hash: 'five',
-          url: 'Corporations-Tend-to-Be-Much-Larger-than-Pass-through-Businesses',
-          name: 'Corporations Tend to Be Much Larger than Pass-through Businesses',
-          subtitle: 'Average Size of Business Type by Gross Receipts per Return, 2011',
-          chart: 'images/1_5.svg',
-          share: 'images/1_5.svg',
-          format: 'square',
-          body: 'Corporations tend to be significantly larger than pass-through entities. The average corporation earned $11.6 million in total revenues in 2011. The average pass-through earned a much smaller amount: $382,972. This is because most new businesses file as pass-throughs, with the owner(s) paying taxes on individual tax returns. Note: This includes all active returns both with and without income.',
-          callout: 'Nearly all publicly traded business are C corporations. In some cases, pass-through entities are just as large as C corporations, with hundreds of thousands of employees and tens of billions of dollars in revenue.',
-          source: 'Source: IRS.'
-        },
-        {
-          hash: 'six',
-          url: 'C-Corporations-Pay-the-Highest-Private-Sector-Wages',
-          name: 'C Corporations Pay the Highest Private Sector Wages',
-          subtitle: 'Average Employee Pay by Type of Organization, 2011',
-          chart: 'images/1_6.svg',
-          share: 'images/1_6.svg',
-          format: 'square',
-          body: 'Corporations pay employees a higher average annual wage than pass-through entities. Average pay at corporations is $53,444 a year, while average pay for pass-through entities is about $38,000 a year. While corporations come close, neither match the annual average pay for government employees of $53,661. The average pay across the entire private sector is $46,458.',
-          callout: '',
-          source: 'Source: U.S. Census Bureau.'
-        },
-        {
-          hash: 'seven',
-          url: 'Less-Than-One-Percent-of-Businesses-Employ-Half-of-the-Workforce',
-          name: 'Less Than One Percent of Businesses Employ Half of the Workforce',
-          subtitle: 'Share of Firms and Share of Employment by Firm Size, 2011',
-          chart: 'images/1_7.svg',
-          share: 'images/1_7.svg',
-          format: 'wide',
-          body: 'While nearly 80 percent of all firms have between 0 and 9 employee, these firms only employ 10.8 percent of all workers. These firms can be anything from a freelance journalist to a coffee shop to a small car dealership and can be organized as a pass-through or corporation. On the other hand, while only 0.3 percent of all firms have over 500 employees, this small group of businesses employs 51.5 percent of the nation\'s workforce.',
-          callout: 'Some of the world\'s largest companies employ nearly a quarter of a million people each.',
-          source: 'Source: U.S. Census Bureau.'
-        },
-        {
-          hash: 'eight',
-          url: 'Service-Industries-Make-Up-the-Largest-Segment-of-the-U.S.-Economy',
-          name: 'Service Industries Make Up the Largest Segment of the U.S. Economy',
-          subtitle: 'Gross Domestic Product by Industry in 2013 (Billions of Dollars)',
-          chart: 'images/1_8.svg',
-          share: 'images/1_8.svg',
-          format: 'wide',
-          body: 'The U.S. economy is largely service focused. Service industries—including government—make up four of the five largest individual sectors of the economy. The largest sector of the economy in 2013 was the financial and real estate sector at $3.3 trillion, followed by government ($2.2 trillion) and manufacturing ($2.1 trillion). Since 1997, the service industry has expanded from 64.2 percent of the economy to 66.7 percent, while the production sector has dropped from 22.5 percent of the economy to 20.3 percent.',
-          callout: 'Government at all levels was the second largest industry in 2013, making up 13 percent of the economy.',
-          source: 'Source: Bureau of Economic Analysis.'
-        },
-        {
-          hash: 'nine',
-          url: 'Government-Employs-More-Workers-than-Any-Other-Industry',
-          name: 'Government Employs More Workers than Any Other Industry',
-          subtitle: 'Employment by Industry in 2012 (Millions of People)',
-          chart: 'images/1_9.svg',
-          share: 'images/1_9.svg',
-          format: 'wide',
-          body: 'Governments at all levels employ more people than any other single industry with 24.4 million people, or over 17 percent of all employees. The next largest is education and health care (20.4 million), followed by professional and business services (18.1 million). Combined, the service industry accounts for 68 percent of all employees. Goods-producing industries, such as manufacturing and mining, only account for about 19 million jobs (14 percent) with the most coming from manufacturing with 11.9 million.',
-          callout: 'Total employment in 2012 for full and part-time work was 139,741,000 people, lower than the 139,770,000 people employed in 2005.',
-          source: 'Source: Bureau of Economic Analysis.'
-        }
-      ];
+
       template.addEventListener('template-bound', function(e) {
         // Use URL hash for initial route. Otherwise, use the first page.
         this.route = this.route || DEFAULT_ROUTE;
       });
+
       template.keyHandler = function(e, detail, sender) {
         var pages = document.querySelector('#pages');
 
@@ -196,6 +88,108 @@
           document.querySelector('#scaffold').closeDrawer();
         }
       };
+
+      template.pages = [
+        {
+          url: 'Business-Income-Ebbs-and-Flows-with-the-Economy',
+          name: 'Business Income Ebbs and Flows with the Economy',
+          subtitle: 'Total Business Income, 1958 to 2011, in Billions of 2013 Dollars',
+          chart: 'images/1_1.svg',
+          share: 'images/page1share.svg',
+          format: 'wide',
+          body: 'Since 1958, total U.S. business income has increased significantly, from just under $500 billion in 1958 to over $2 trillion in 2011 (after adjusting for inflation). However, business income is highly susceptible to the ebb and flow of the economy. While income climbed from $1.2 trillion in 2002 to over $3 trillion in 2005 and 2006, it was halved to $1.5 trillion in 2009. From there, it bounced back slightly, reaching over $2 trillion in 2011.',
+          callout: '',
+          source: 'Source: IRS'
+        },
+        {
+          url: 'Pass-through-Entities-Are-the-Most-Dominant-Business-Type',
+          name: 'Pass-through Entities Are the Most Dominant Business Type',
+          subtitle: 'Number of Tax Returns for Corporations and Pass-through Entities, 1958 to 2011',
+          chart: 'images/1_2.svg',
+          share: 'images/page2share.svg',
+          format: 'wide',
+          body: 'Businesses in the United States organize into two dominant forms: corporations and pass-through entities (sole proprietorships, partnerships, and S corporations). In the last 50 years, the number of pass-throughs has grown from about 10 million returns in the late 1950s to over 30 million returns today. The Tax Reform Act of 1986, which lowered top tax rates on individuals from 50 percent to 28 percent, made it much more attractive for businesses to pay taxes as pass-throughs rather than as C corporations.',
+          callout: 'Owners of pass-through entities pay taxes on their individual tax returns. Thus, the income is "passed through" the business to the shareholders.',
+          source: ''
+        },
+        {
+          url: 'Pass-throughs-Now-Earn-More-Business-Income-Than-Corporations',
+          name: 'Pass-throughs Now Earn More Business Income Than Corporations',
+          subtitle: 'Share of Net Income for Passthroughs and C Corporations, 1958 to 2011, in Billions',
+          chart: 'images/1_3.svg',
+          share: 'images/1_3.svg',
+          format: 'wide',
+          body: 'Much of the growth in business income since 1980 has come from pass-through businesses. Pass-throughs now earn over 60 percent of all business income. In 2011, pass-throughs earned $1.3 trillion in business income compared to around $800 billion earned by corporations.',
+          callout:'Corporations saw a huge collapse in their income following the financial market crash, falling from nearly $1.3 trillion in 2007 to $450 billion in 2008.',
+          source: 'Source: IRS.'
+        },
+        {
+          url: 'Corporations-Make-Up-5-Percent-of-Businesses-but-Earn-62-Percent-of-Revenues',
+          name: 'Corporations Make Up 5 Percent of Businesses but Earn 62 Percent of Revenues',
+          subtitle: 'Share of Firms and Share of Gross Receipts by Firm Type, 2011',
+          chart: 'images/1_4.svg',
+          share: 'images/1_4.svg',
+          format: 'square',
+          body: 'While there are significantly more pass-through entities than C corporations, corporations still earned the largest portion of the $30.9 trillion in total gross receipts in 2011. In all, corporations make up about 5 percent of the 32,500,000 business tax returns but account for 62 percent of all gross receipts with $19 trillion. Pass-throughs make up nearly 95 percent of all firms and account for the remaining 38 percent of gross receipts with $11.8 trillion. Note: This includes all active returns both with and without income.',
+          callout: 'Despite earning $8 trillion less in total gross receipts, pass-throughs earned more net income (over $1.2 trillion) than corporations (over $700 billion) in 2011.',
+          source: 'Source: IRS.'
+        },
+        {
+          url: 'Corporations-Tend-to-Be-Much-Larger-than-Pass-through-Businesses',
+          name: 'Corporations Tend to Be Much Larger than Pass-through Businesses',
+          subtitle: 'Average Size of Business Type by Gross Receipts per Return, 2011',
+          chart: 'images/1_5.svg',
+          share: 'images/1_5.svg',
+          format: 'square',
+          body: 'Corporations tend to be significantly larger than pass-through entities. The average corporation earned $11.6 million in total revenues in 2011. The average pass-through earned a much smaller amount: $382,972. This is because most new businesses file as pass-throughs, with the owner(s) paying taxes on individual tax returns. Note: This includes all active returns both with and without income.',
+          callout: 'Nearly all publicly traded business are C corporations. In some cases, pass-through entities are just as large as C corporations, with hundreds of thousands of employees and tens of billions of dollars in revenue.',
+          source: 'Source: IRS.'
+        },
+        {
+          url: 'C-Corporations-Pay-the-Highest-Private-Sector-Wages',
+          name: 'C Corporations Pay the Highest Private Sector Wages',
+          subtitle: 'Average Employee Pay by Type of Organization, 2011',
+          chart: 'images/1_6.svg',
+          share: 'images/1_6.svg',
+          format: 'square',
+          body: 'Corporations pay employees a higher average annual wage than pass-through entities. Average pay at corporations is $53,444 a year, while average pay for pass-through entities is about $38,000 a year. While corporations come close, neither match the annual average pay for government employees of $53,661. The average pay across the entire private sector is $46,458.',
+          callout: '',
+          source: 'Source: U.S. Census Bureau.'
+        },
+        {
+          url: 'Less-Than-One-Percent-of-Businesses-Employ-Half-of-the-Workforce',
+          name: 'Less Than One Percent of Businesses Employ Half of the Workforce',
+          subtitle: 'Share of Firms and Share of Employment by Firm Size, 2011',
+          chart: 'images/1_7.svg',
+          share: 'images/1_7.svg',
+          format: 'wide',
+          body: 'While nearly 80 percent of all firms have between 0 and 9 employee, these firms only employ 10.8 percent of all workers. These firms can be anything from a freelance journalist to a coffee shop to a small car dealership and can be organized as a pass-through or corporation. On the other hand, while only 0.3 percent of all firms have over 500 employees, this small group of businesses employs 51.5 percent of the nation\'s workforce.',
+          callout: 'Some of the world\'s largest companies employ nearly a quarter of a million people each.',
+          source: 'Source: U.S. Census Bureau.'
+        },
+        {
+          url: 'Service-Industries-Make-Up-the-Largest-Segment-of-the-U.S.-Economy',
+          name: 'Service Industries Make Up the Largest Segment of the U.S. Economy',
+          subtitle: 'Gross Domestic Product by Industry in 2013 (Billions of Dollars)',
+          chart: 'images/1_8.svg',
+          share: 'images/1_8.svg',
+          format: 'wide',
+          body: 'The U.S. economy is largely service focused. Service industries—including government—make up four of the five largest individual sectors of the economy. The largest sector of the economy in 2013 was the financial and real estate sector at $3.3 trillion, followed by government ($2.2 trillion) and manufacturing ($2.1 trillion). Since 1997, the service industry has expanded from 64.2 percent of the economy to 66.7 percent, while the production sector has dropped from 22.5 percent of the economy to 20.3 percent.',
+          callout: 'Government at all levels was the second largest industry in 2013, making up 13 percent of the economy.',
+          source: 'Source: Bureau of Economic Analysis.'
+        },
+        {
+          url: 'Government-Employs-More-Workers-than-Any-Other-Industry',
+          name: 'Government Employs More Workers than Any Other Industry',
+          subtitle: 'Employment by Industry in 2012 (Millions of People)',
+          chart: 'images/1_9.svg',
+          share: 'images/1_9.svg',
+          format: 'wide',
+          body: 'Governments at all levels employ more people than any other single industry with 24.4 million people, or over 17 percent of all employees. The next largest is education and health care (20.4 million), followed by professional and business services (18.1 million). Combined, the service industry accounts for 68 percent of all employees. Goods-producing industries, such as manufacturing and mining, only account for about 19 million jobs (14 percent) with the most coming from manufacturing with 11.9 million.',
+          callout: 'Total employment in 2012 for full and part-time work was 139,741,000 people, lower than the 139,770,000 people employed in 2005.',
+          source: 'Source: Bureau of Economic Analysis.'
+        }
+      ];
     })();
     </script>
   </body>
