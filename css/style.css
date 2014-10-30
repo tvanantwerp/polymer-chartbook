@@ -50,13 +50,10 @@ body /deep/ core-toolbar {
   font-size: 16px;
 }
 
-nav {
-  overflow-y: auto;
-}
-
 core-menu {
   color: #01579b;
   margin: 10px 0 0 0;
+  overflow-y: auto;
 }
 
 core-menu > chartbook-item {
