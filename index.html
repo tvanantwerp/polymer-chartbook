@@ -5,6 +5,7 @@
     <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
     <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
     <link rel="import" href="bower_components/core-menu/core-menu.html">
+    <link rel="import" href="bower_components/core-menu/core-submenu.html">
     <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
     <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
     <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
@@ -20,18 +21,27 @@
       <core-a11y-keys target="{{parentElement}}" keys="up down left right space space+shift" on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
 
       <core-scaffold id="scaffold">
+
         <nav>
+          <core-toolbar>
+            <span>Business In America</span>
+          </core-toolbar>
+
           <core-menu valueattr="url" selected="{{route}}" on-core-select="{{menuItemSelected}}">
+
             <template repeat="{{page in pages}}">
               <chartbook-item label="{{page.name}}" url="{{page.url}}" selected="{{route}}">
                 <a href="#{{page.url}}"></a>
               </chartbook-item>
             </template>
+
           </core-menu>
         </nav>
 
         <core-toolbar tool flex>
-          <div flex>Business In America</div>
+          <div flex></div>
+          <core-icon-button icon="chevron-left" on-click="{{goToPrevious}}"></core-icon-button>
+          <core-icon-button icon="chevron-right" on-click="{{goToNext}}"></core-icon-button>
         </core-toolbar>
 
         <div layout horizontal center-center fit>
@@ -54,6 +64,7 @@
       </core-scaffold>
     </template>
 
+    <script src="bower_components/hammerjs/hammer.js"></script>
     <script>
     (function() {
       var DEFAULT_ROUTE = 'Business-Income-Ebbs-and-Flows-with-the-Economy';
@@ -64,6 +75,16 @@
         // Use URL hash for initial route. Otherwise, use the first page.
         this.route = this.route || DEFAULT_ROUTE;
       });
+
+      template.goToNext = function(e, detail, sender) {
+        var pages = document.querySelector('#pages');
+        pages.selectNext();
+      }
+
+      template.goToPrevious = function(e, detail, sender) {
+        var pages = document.querySelector('#pages');
+        pages.selectPrevious();
+      }
 
       template.keyHandler = function(e, detail, sender) {
         var pages = document.querySelector('#pages');
@@ -84,13 +105,51 @@
       };
 
       template.menuItemSelected = function(e, detail, sender) {
-        if (detail.isSelected) {
+        if (detail.isSelected && detail.item.localName == 'chartbook-item') {
           document.querySelector('#scaffold').closeDrawer();
         }
       };
 
+      Hammer(document.getElementsByTagName('body')[0])
+        .on("swipeleft", function(event){
+          var pages = document.querySelector('#pages');
+          pages.selectNext();
+        })
+        .on("swiperight", function(event){
+          var pages = document.querySelector('#pages');
+          pages.selectPrevious();
+        });
+
+      template.chapterMenu = [
+        {
+          name: 'Chapter 1',
+          pages: [
+            {
+              name: 'Page 1',
+              url: 'Business-Income-Ebbs-and-Flows-with-the-Economy'
+            },
+            {
+              name: 'Page 2',
+              url: 'Pass-through-Entities-Are-the-Most-Dominant-Business-Type'
+            }]
+        },
+                {
+          name: 'Chapter 2',
+          pages: [
+            {
+              name: 'Page 1',
+              url: 'Pass-throughs-Now-Earn-More-Business-Income-Than-Corporations'
+            },
+            {
+              name: 'Page 2',
+              url: 'page2-2'
+            }]
+        }
+      ];
+
       template.pages = [
         {
+          chapter: 'Chapter 1',
           url: 'Business-Income-Ebbs-and-Flows-with-the-Economy',
           name: 'Business Income Ebbs and Flows with the Economy',
           subtitle: 'Total Business Income, 1958 to 2011, in Billions of 2013 Dollars',
@@ -102,6 +161,7 @@
           source: 'Source: IRS'
         },
         {
+          chapter: 'Chapter 1',
           url: 'Pass-through-Entities-Are-the-Most-Dominant-Business-Type',
           name: 'Pass-through Entities Are the Most Dominant Business Type',
           subtitle: 'Number of Tax Returns for Corporations and Pass-through Entities, 1958 to 2011',
@@ -113,6 +173,7 @@
           source: ''
         },
         {
+          chapter: 'Chapter 1',
           url: 'Pass-throughs-Now-Earn-More-Business-Income-Than-Corporations',
           name: 'Pass-throughs Now Earn More Business Income Than Corporations',
           subtitle: 'Share of Net Income for Passthroughs and C Corporations, 1958 to 2011, in Billions',
@@ -124,6 +185,7 @@
           source: 'Source: IRS.'
         },
         {
+          chapter: 'Chapter 1',
           url: 'Corporations-Make-Up-5-Percent-of-Businesses-but-Earn-62-Percent-of-Revenues',
           name: 'Corporations Make Up 5 Percent of Businesses but Earn 62 Percent of Revenues',
           subtitle: 'Share of Firms and Share of Gross Receipts by Firm Type, 2011',
@@ -135,6 +197,7 @@
           source: 'Source: IRS.'
         },
         {
+          chapter: 'Chapter 1',
           url: 'Corporations-Tend-to-Be-Much-Larger-than-Pass-through-Businesses',
           name: 'Corporations Tend to Be Much Larger than Pass-through Businesses',
           subtitle: 'Average Size of Business Type by Gross Receipts per Return, 2011',
@@ -146,6 +209,7 @@
           source: 'Source: IRS.'
         },
         {
+          chapter: 'Chapter 1',
           url: 'C-Corporations-Pay-the-Highest-Private-Sector-Wages',
           name: 'C Corporations Pay the Highest Private Sector Wages',
           subtitle: 'Average Employee Pay by Type of Organization, 2011',
@@ -157,6 +221,7 @@
           source: 'Source: U.S. Census Bureau.'
         },
         {
+          chapter: 'Chapter 1',
           url: 'Less-Than-One-Percent-of-Businesses-Employ-Half-of-the-Workforce',
           name: 'Less Than One Percent of Businesses Employ Half of the Workforce',
           subtitle: 'Share of Firms and Share of Employment by Firm Size, 2011',
@@ -168,6 +233,7 @@
           source: 'Source: U.S. Census Bureau.'
         },
         {
+          chapter: 'Chapter 1',
           url: 'Service-Industries-Make-Up-the-Largest-Segment-of-the-U.S.-Economy',
           name: 'Service Industries Make Up the Largest Segment of the U.S. Economy',
           subtitle: 'Gross Domestic Product by Industry in 2013 (Billions of Dollars)',
@@ -179,6 +245,7 @@
           source: 'Source: Bureau of Economic Analysis.'
         },
         {
+          chapter: 'Chapter 1',
           url: 'Government-Employs-More-Workers-than-Any-Other-Industry',
           name: 'Government Employs More Workers than Any Other Industry',
           subtitle: 'Employment by Industry in 2012 (Millions of People)',
@@ -190,6 +257,7 @@
           source: 'Source: Bureau of Economic Analysis.'
         }
       ];
+
     })();
     </script>
   </body>
