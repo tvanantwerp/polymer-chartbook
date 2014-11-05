@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Chartbook</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Chartbook Prototype">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="bower_components/platform/platform.js"></script>
-    <link rel="import" href="bower_components/chartbook-scaffold/chartbook-scaffold.html">
-    <link rel="import" href="bower_components/chartbook-toolbar/chartbook-toolbar.html">
+    <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
     <link rel="import" href="bower_components/core-menu/core-menu.html">
-    <link rel="import" href="bower_components/core-menu/core-submenu.html">
     <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
     <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
     <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
@@ -13,6 +17,7 @@
     <link rel="import" href="bower_components/chartbook-item/chartbook-item.html">
     <link rel="import" href="bower_components/flatiron-director/flatiron-director.html">
     <link rel="stylesheet" href="css/style.css">
+    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
   </head>
 
   <body unresolved fullbleed>
@@ -20,12 +25,12 @@
       <flatiron-director route="{{route}}" autohash></flatiron-director>
       <core-a11y-keys target="{{parentElement}}" keys="up down left right space space+shift" on-keys-pressed="{{keyHandler}}"></core-a11y-keys>
 
-      <chartbook-scaffold id="scaffold">
+      <core-scaffold id="scaffold">
 
         <nav>
-          <chartbook-toolbar>
-            <span>Business In America</span>
-          </chartbook-toolbar>
+          <core-toolbar>
+            <span>Business In America Illustrated</span>
+          </core-toolbar>
 
           <core-menu valueattr="url" selected="{{route}}" on-core-select="{{menuItemSelected}}">
 
@@ -38,30 +43,50 @@
           </core-menu>
         </nav>
 
-        <chartbook-toolbar tool flex>
+        <core-toolbar tool flex>
           <div flex></div>
           <core-icon-button icon="chevron-left" on-click="{{goToPrevious}}"></core-icon-button>
           <core-icon-button icon="chevron-right" on-click="{{goToNext}}"></core-icon-button>
-        </chartbook-toolbar>
+        </core-toolbar>
 
         <div layout horizontal center-center fit>
           <core-animated-pages id="pages" valueattr="url" selected="{{route}}" transitions="slide-from-right">
             <template repeat="{{page in pages}}">
-              <section url="{{page.url}}" layout>
-                <div>
-                  <h1>{{page.name}}</h1>
-                  <h2>{{page.subtitle}}</h2>
-                  <img style="width:70%" src="{{page.chart}}" />
-                  <p>{{page.body}}</p>
-                  <p>{{page.callout}}</p>
-                  <p>{{page.source}}</p>
-                </div>
-              </section>
+
+              <template if="{{page.format == 'chapter'}}">
+                <section class="chapter" url="{{page.url}}" layout>
+                  <div class="page-container">
+                    <div style="text-align: center">
+                      <h1>{{page.name}}</h1>
+                      <h2>{{page.subtitle}}</h2>
+                    </div>
+                    <div class="chapter-body">
+                      <template repeat="{{paragraph in page.body}}">
+                        <p>{{paragraph}}</p>
+                      </template>
+                    </div>
+                  </div>
+                </section>
+              </template>
+
+              <template if="{{page.format == 'wide' || page.format == 'square'}}">
+                <section url="{{page.url}}" layout>
+                  <div class="page-container">
+                    <h1>{{page.name}}</h1>
+                    <h2>{{page.subtitle}}</h2>
+                    <img class="{{page.format}}" src="{{page.chart}}" />
+                    <p>{{page.body}}</p>
+                    <p class="callout">{{page.callout}}</p>
+                    <p><em>{{page.source}}</em></p>
+                  </div>
+                </section>
+              </template>
+
             </template>
           </core-animated-pages>
         </div>
 
-      </chartbook-scaffold>
+      </core-scaffold>
     </template>
 
     <script src="bower_components/hammerjs/hammer.js"></script>
@@ -120,36 +145,24 @@
           pages.selectPrevious();
         });
 
-      template.chapterMenu = [
-        {
-          name: 'Chapter 1',
-          pages: [
-            {
-              name: 'Page 1',
-              url: 'Business-Income-Ebbs-and-Flows-with-the-Economy'
-            },
-            {
-              name: 'Page 2',
-              url: 'Pass-through-Entities-Are-the-Most-Dominant-Business-Type'
-            }]
-        },
-                {
-          name: 'Chapter 2',
-          pages: [
-            {
-              name: 'Page 1',
-              url: 'Pass-throughs-Now-Earn-More-Business-Income-Than-Corporations'
-            },
-            {
-              name: 'Page 2',
-              url: 'page2-2'
-            }]
-        }
-      ];
-
       template.pages = [
         {
-          chapter: 'Chapter 1',
+          url: 'Chapter-1',
+          name: 'Chapter 1',
+          subtitle: 'The U.S. Economy is Treading Water',
+          chart: '',
+          share: '',
+          format: 'chapter',
+          body: ['The global recession was tough on the U.S. economy, and many Americans are still feeling the effects.',
+            'Five years into the recovery, economic growth has remained persistently sluggish. Median household incomes are below the levels seen in 2000 and the percent of people employed is at its lowest level in over 30 years. To make matter worse, U.S. saving and investment are in long term decline and businesses are barely investing enough to keep pace with the wearing out of equipment and structures.',
+            'The U.S. economy is treading water. A big reason for the economic malaise in the United States is how the tax code treats businesses and private business owners.',
+            'For starters, the U.S. has one of the least competitive tax codes in the developed world. U.S. corporations face the third highest tax rate in the entire world, behind only Chad and the United Arab Emirates, and rules on foreign-earned income that discourages corporations from reinvesting in the United States.',
+            'The tax isn’t any better for non-corporate businesses. Pass-through businesses face an overly complex and burdensome tax code with small businesses reporting compliance costs of $19 billion per year. To add on, a 2012 tax increase raised tax rates on some pass-through businesses to over 50 percent in some states. It also increased tax rates on investment by nearly 60 percent.',
+            'The increasingly burdensome tax code makes it more and more difficult to build and grow a business. This has a real impact on real people. If we want our economy to achieve its potential, we need to better understand the current make up of U.S. businesses and their interaction with the tax code.'],
+          callout: '',
+          source: ''
+        },
+        {
           url: 'Business-Income-Ebbs-and-Flows-with-the-Economy',
           name: 'Business Income Ebbs and Flows with the Economy',
           subtitle: 'Total Business Income, 1958 to 2011, in Billions of 2013 Dollars',
@@ -161,7 +174,6 @@
           source: 'Source: IRS'
         },
         {
-          chapter: 'Chapter 1',
           url: 'Pass-through-Entities-Are-the-Most-Dominant-Business-Type',
           name: 'Pass-through Entities Are the Most Dominant Business Type',
           subtitle: 'Number of Tax Returns for Corporations and Pass-through Entities, 1958 to 2011',
@@ -173,7 +185,6 @@
           source: ''
         },
         {
-          chapter: 'Chapter 1',
           url: 'Pass-throughs-Now-Earn-More-Business-Income-Than-Corporations',
           name: 'Pass-throughs Now Earn More Business Income Than Corporations',
           subtitle: 'Share of Net Income for Passthroughs and C Corporations, 1958 to 2011, in Billions',
@@ -185,7 +196,6 @@
           source: 'Source: IRS.'
         },
         {
-          chapter: 'Chapter 1',
           url: 'Corporations-Make-Up-5-Percent-of-Businesses-but-Earn-62-Percent-of-Revenues',
           name: 'Corporations Make Up 5 Percent of Businesses but Earn 62 Percent of Revenues',
           subtitle: 'Share of Firms and Share of Gross Receipts by Firm Type, 2011',
@@ -197,7 +207,6 @@
           source: 'Source: IRS.'
         },
         {
-          chapter: 'Chapter 1',
           url: 'Corporations-Tend-to-Be-Much-Larger-than-Pass-through-Businesses',
           name: 'Corporations Tend to Be Much Larger than Pass-through Businesses',
           subtitle: 'Average Size of Business Type by Gross Receipts per Return, 2011',
@@ -209,7 +218,6 @@
           source: 'Source: IRS.'
         },
         {
-          chapter: 'Chapter 1',
           url: 'C-Corporations-Pay-the-Highest-Private-Sector-Wages',
           name: 'C Corporations Pay the Highest Private Sector Wages',
           subtitle: 'Average Employee Pay by Type of Organization, 2011',
@@ -221,7 +229,6 @@
           source: 'Source: U.S. Census Bureau.'
         },
         {
-          chapter: 'Chapter 1',
           url: 'Less-Than-One-Percent-of-Businesses-Employ-Half-of-the-Workforce',
           name: 'Less Than One Percent of Businesses Employ Half of the Workforce',
           subtitle: 'Share of Firms and Share of Employment by Firm Size, 2011',
@@ -233,7 +240,6 @@
           source: 'Source: U.S. Census Bureau.'
         },
         {
-          chapter: 'Chapter 1',
           url: 'Service-Industries-Make-Up-the-Largest-Segment-of-the-U.S.-Economy',
           name: 'Service Industries Make Up the Largest Segment of the U.S. Economy',
           subtitle: 'Gross Domestic Product by Industry in 2013 (Billions of Dollars)',
@@ -245,7 +251,6 @@
           source: 'Source: Bureau of Economic Analysis.'
         },
         {
-          chapter: 'Chapter 1',
           url: 'Government-Employs-More-Workers-than-Any-Other-Industry',
           name: 'Government Employs More Workers than Any Other Industry',
           subtitle: 'Employment by Industry in 2012 (Millions of People)',
