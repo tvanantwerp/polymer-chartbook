@@ -10,6 +10,8 @@
     <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
     <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
     <link rel="import" href="bower_components/core-menu/core-menu.html">
+    <link rel="import" href="bower_components/core-icons/core-icons.html">
+    <link rel="import" href="bower_components/core-icons/social-icons.html">
     <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
     <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
     <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
@@ -54,7 +56,7 @@
             <template repeat="{{page in pages}}">
 
               <template if="{{page.format == 'chapter'}}">
-                <section class="chapter" url="{{page.url}}" layout>
+                <section style="background-image:url({{page.image}})" class="chapter" url="{{page.url}}" layout>
                   <div class="page-container">
                     <div style="text-align: center">
                       <h1>{{page.name}}</h1>
@@ -74,10 +76,11 @@
                   <div class="page-container">
                     <h1>{{page.name}}</h1>
                     <h2>{{page.subtitle}}</h2>
-                    <img class="{{page.format}}" src="{{page.chart}}" />
+                    <img class="{{page.format}}" src="{{page.image}}" />
                     <p>{{page.body}}</p>
                     <p class="callout">{{page.callout}}</p>
                     <p><em>{{page.source}}</em></p>
+                    <span><core-icon icon="social:post-facebook"></core-icon></span>
                   </div>
                 </section>
               </template>
@@ -92,7 +95,7 @@
     <script src="bower_components/hammerjs/hammer.js"></script>
     <script>
     (function() {
-      var DEFAULT_ROUTE = 'Business-Income-Ebbs-and-Flows-with-the-Economy';
+      var DEFAULT_ROUTE = 'Chapter-1';
 
       var template = document.querySelector('template[is="auto-binding"]');
 
@@ -150,6 +153,7 @@
           url: 'Chapter-1',
           name: 'Chapter 1',
           subtitle: 'The U.S. Economy is Treading Water',
+          image: 'images/chapter1-bg.jpg',
           format: 'chapter',
           body: ['The global recession was tough on the U.S. economy, and many Americans are still feeling the effects.',
             'Five years into the recovery, economic growth has remained persistently sluggish. Median household incomes are below the levels seen in 2000 and the percent of people employed is at its lowest level in over 30 years. To make matter worse, U.S. saving and investment are in long term decline and businesses are barely investing enough to keep pace with the wearing out of equipment and structures.',
@@ -159,103 +163,77 @@
             'The increasingly burdensome tax code makes it more and more difficult to build and grow a business. This has a real impact on real people. If we want our economy to achieve its potential, we need to better understand the current make up of U.S. businesses and their interaction with the tax code.']
         },
         {
-          url: 'Business-Income-Ebbs-and-Flows-with-the-Economy',
-          name: 'Business Income Ebbs and Flows with the Economy',
-          subtitle: 'Total Business Income, 1958 to 2011, in Billions of 2013 Dollars',
-          chart: 'images/1_1.svg',
-          share: 'images/page1share.svg',
+          url: 'Economic-Growth-Has-Slowed-Since-2000',
+          name: 'Economic Growth Has Slowed Since 2000',
+          subtitle: 'Real Annual GDP Growth Rate and Average, 1970-2013',
+          image: 'images/1_1.svg',
           format: 'wide',
-          body: 'Since 1958, total U.S. business income has increased significantly, from just under $500 billion in 1958 to over $2 trillion in 2011 (after adjusting for inflation). However, business income is highly susceptible to the ebb and flow of the economy. While income climbed from $1.2 trillion in 2002 to over $3 trillion in 2005 and 2006, it was halved to $1.5 trillion in 2009. From there, it bounced back slightly, reaching over $2 trillion in 2011.',
+          body: 'Since 2000, GDP growth in the U.S. has been persistently low, averaging about 2 percent. Between 1970 and 2000, GDP growth averaged above 3 percent. There is a recent trend toward slower growth in the U.S., a trend that needs to be mitigated or reversed with better economic policy.',
           callout: '',
-          source: 'Source: IRS'
+          source: 'Source: Bureau of Economic Analysis'
         },
         {
-          url: 'Pass-through-Entities-Are-the-Most-Dominant-Business-Type',
-          name: 'Pass-through Entities Are the Most Dominant Business Type',
-          subtitle: 'Number of Tax Returns for Corporations and Pass-through Entities, 1958 to 2011',
-          chart: 'images/1_2.svg',
-          share: 'images/page2share.svg',
-          format: 'wide',
-          body: 'Businesses in the United States organize into two dominant forms: corporations and pass-through entities (sole proprietorships, partnerships, and S corporations). In the last 50 years, the number of pass-throughs has grown from about 10 million returns in the late 1950s to over 30 million returns today. The Tax Reform Act of 1986, which lowered top tax rates on individuals from 50 percent to 28 percent, made it much more attractive for businesses to pay taxes as pass-throughs rather than as C corporations.',
+          url: 'The-U.S.-Economy-Is-Recovering-Too-Slowly-From-the-Last-Recession',
+          name: 'The U.S. Economy Is Recovering Too Slowly From the Last Recession',
+          subtitle: 'U.S. Real GDP 2000–2025 (Projected), CBO Projected vs. Pre-Recession Trend (2014 Dollars)',
+          image: 'images/1_2.svg',
+          format: 'square',
+          body: 'The global financial crisis dramatically harmed the U.S. economy, reducing overall output by $455 billion in real terms. Typically after recessions, the economy quickly recovers. However, this recovery has not been quick. While the U.S. economy has been growing for the past couple of years, it has been slow—too slow to fully recover from the crisis. In fact, the Congressional Budget Office (CBO) projects that the U.S. economy will permanently remain below the pre-recession trend. This permanent gap due to the recession means that the economy will still be $4.5 trillion below its previous trend by 2020.',
           callout: 'Owners of pass-through entities pay taxes on their individual tax returns. Thus, the income is "passed through" the business to the shareholders.',
-          source: ''
+          source: 'Source: Congressional Budget Office; Tax Foundation calculations.'
         },
         {
-          url: 'Pass-throughs-Now-Earn-More-Business-Income-Than-Corporations',
-          name: 'Pass-throughs Now Earn More Business Income Than Corporations',
-          subtitle: 'Share of Net Income for Passthroughs and C Corporations, 1958 to 2011, in Billions',
-          chart: 'images/1_3.svg',
-          share: 'images/1_3.svg',
+          url: 'The-U.S.-Labor-Force-Is-Smaller-Today-Than-in-the-Past-30-Years',
+          name: 'The U.S. Labor Force Is Smaller Today Than in the Past 30 Years',
+          subtitle: 'Civilian Employment to Population Ratio, Seasonally Adjusted 1960–2014',
+          image: 'images/1_3.svg',
           format: 'wide',
-          body: 'Much of the growth in business income since 1980 has come from pass-through businesses. Pass-throughs now earn over 60 percent of all business income. In 2011, pass-throughs earned $1.3 trillion in business income compared to around $800 billion earned by corporations.',
-          callout:'Corporations saw a huge collapse in their income following the financial market crash, falling from nearly $1.3 trillion in 2007 to $450 billion in 2008.',
-          source: 'Source: IRS.'
+          body: 'The global financial crisis also impacted the U.S. labor force. The U.S. employment-to-population ratio, which reflects the number of working-age individuals who are employed, declined from 63 percent in 2007 to about 58 percent in 2009, the largest decline in the past 50 years. Even as the economy has slowly recovered, the labor market has not. The employment-to-population ratio remains below 60 percent, levels we have not seen since the late 1970s and early 1980s.',
+          callout:'',
+          source: 'Source: Federal Reserve Bank of St. Louis.'
         },
         {
-          url: 'Corporations-Make-Up-5-Percent-of-Businesses-but-Earn-62-Percent-of-Revenues',
-          name: 'Corporations Make Up 5 Percent of Businesses but Earn 62 Percent of Revenues',
-          subtitle: 'Share of Firms and Share of Gross Receipts by Firm Type, 2011',
-          chart: 'images/1_4.svg',
-          share: 'images/1_4.svg',
+          url: 'Household-Incomes-Have-Stagnated-in-the-Last-Decade',
+          name: 'Household Incomes Have Stagnated in the Last Decade',
+          subtitle: 'U.S. Median Household Income, 1980–2013 (2013 Dollars)',
+          image: 'images/1_4.svg',
           format: 'square',
-          body: 'While there are significantly more pass-through entities than C corporations, corporations still earned the largest portion of the $30.9 trillion in total gross receipts in 2011. In all, corporations make up about 5 percent of the 32,500,000 business tax returns but account for 62 percent of all gross receipts with $19 trillion. Pass-throughs make up nearly 95 percent of all firms and account for the remaining 38 percent of gross receipts with $11.8 trillion. Note: This includes all active returns both with and without income.',
-          callout: 'Despite earning $8 trillion less in total gross receipts, pass-throughs earned more net income (over $1.2 trillion) than corporations (over $700 billion) in 2011.',
-          source: 'Source: IRS.'
-        },
-        {
-          url: 'Corporations-Tend-to-Be-Much-Larger-than-Pass-through-Businesses',
-          name: 'Corporations Tend to Be Much Larger than Pass-through Businesses',
-          subtitle: 'Average Size of Business Type by Gross Receipts per Return, 2011',
-          chart: 'images/1_5.svg',
-          share: 'images/1_5.svg',
-          format: 'square',
-          body: 'Corporations tend to be significantly larger than pass-through entities. The average corporation earned $11.6 million in total revenues in 2011. The average pass-through earned a much smaller amount: $382,972. This is because most new businesses file as pass-throughs, with the owner(s) paying taxes on individual tax returns. Note: This includes all active returns both with and without income.',
-          callout: 'Nearly all publicly traded business are C corporations. In some cases, pass-through entities are just as large as C corporations, with hundreds of thousands of employees and tens of billions of dollars in revenue.',
-          source: 'Source: IRS.'
-        },
-        {
-          url: 'C-Corporations-Pay-the-Highest-Private-Sector-Wages',
-          name: 'C Corporations Pay the Highest Private Sector Wages',
-          subtitle: 'Average Employee Pay by Type of Organization, 2011',
-          chart: 'images/1_6.svg',
-          share: 'images/1_6.svg',
-          format: 'square',
-          body: 'Corporations pay employees a higher average annual wage than pass-through entities. Average pay at corporations is $53,444 a year, while average pay for pass-through entities is about $38,000 a year. While corporations come close, neither match the annual average pay for government employees of $53,661. The average pay across the entire private sector is $46,458.',
+          body: 'Household incomes have stagnated in recent years. From 1980 to 2000, when the economy was growing at a higher rate, real household income increased from $47,668 to $56,800, where it peaked. But since 2000, and after two recessions, median household income in the United States has declined. In 2013, median household income was $51,939, the lowest it has been since 1995. ',
           callout: '',
           source: 'Source: U.S. Census Bureau.'
         },
         {
-          url: 'Less-Than-One-Percent-of-Businesses-Employ-Half-of-the-Workforce',
-          name: 'Less Than One Percent of Businesses Employ Half of the Workforce',
-          subtitle: 'Share of Firms and Share of Employment by Firm Size, 2011',
-          chart: 'images/1_7.svg',
-          share: 'images/1_7.svg',
+          url: 'Saving-and-Investment-Are-In-Long-Term-Decline',
+          name: 'Saving and Investment Are In Long-Term Decline',
+          subtitle: 'Net National Saving and Net Investment as a Percentage of GDP, 1969–2013',
+          image: 'images/1_5.svg',
           format: 'wide',
-          body: 'While nearly 80 percent of all firms have between 0 and 9 employee, these firms only employ 10.8 percent of all workers. These firms can be anything from a freelance journalist to a coffee shop to a small car dealership and can be organized as a pass-through or corporation. On the other hand, while only 0.3 percent of all firms have over 500 employees, this small group of businesses employs 51.5 percent of the nation\'s workforce.',
-          callout: 'Some of the world\'s largest companies employ nearly a quarter of a million people each.',
-          source: 'Source: U.S. Census Bureau.'
+          body: 'One reason for slow economic growth is that saving and investment have been declining in the U.S. for nearly a half century. Investment is important, because it provides American workers with the means to be more productive. Saving is important, because it provides the money needed for investment, which explains the close correlation between the two trends. Tax policy is one of the many factors contributing to the long-term decline in saving and investment.',
+          callout: '',
+          source: 'Source: Bureau of Economic Analysis, Investment Accounts, Table 5.1.'
         },
         {
-          url: 'Service-Industries-Make-Up-the-Largest-Segment-of-the-U.S.-Economy',
-          name: 'Service Industries Make Up the Largest Segment of the U.S. Economy',
-          subtitle: 'Gross Domestic Product by Industry in 2013 (Billions of Dollars)',
-          chart: 'images/1_8.svg',
-          share: 'images/1_8.svg',
+          url: 'The-Financial-Crisis-Hurt-All-Investment-Not-Just-Housing',
+          name: 'The Financial Crisis Hurt All Investment, Not Just Housing',
+          subtitle: 'Net Investment by Sector, 1990–2013 (Billions of 2009 Dollars)',
+          image: 'images/1_6.svg',
           format: 'wide',
-          body: 'The U.S. economy is largely service focused. Service industries—including government—make up four of the five largest individual sectors of the economy. The largest sector of the economy in 2013 was the financial and real estate sector at $3.3 trillion, followed by government ($2.2 trillion) and manufacturing ($2.1 trillion). Since 1997, the service industry has expanded from 64.2 percent of the economy to 66.7 percent, while the production sector has dropped from 22.5 percent of the economy to 20.3 percent.',
-          callout: 'Government at all levels was the second largest industry in 2013, making up 13 percent of the economy.',
-          source: 'Source: Bureau of Economic Analysis.'
+          body: 'The financial crisis was most disastrous for housing, but it was terrible for all kinds of investment. After accounting for the wearing out of equipment and buildings, most sectors of the U.S. capital stock are barely being replenished fast enough to make up for depreciation. The U.S. is doing little to expand its capital stock and is instead mostly just holding on to what it has. The low investment in corporate structures and equipment helps explain why wage growth has been so sluggish. Tax reform, which lowers the cost of capital, could increase investment and grow the economy.',
+          callout: 'Net investment is all investment in physical capital minus the lost value of previously purchased physical capital due to wear and tear.',
+          source: 'Source: Bureau of Economic Analysis, Investment Accounts, Table 5.2.6.'
         },
         {
-          url: 'Government-Employs-More-Workers-than-Any-Other-Industry',
-          name: 'Government Employs More Workers than Any Other Industry',
-          subtitle: 'Employment by Industry in 2012 (Millions of People)',
-          chart: 'images/1_9.svg',
-          share: 'images/1_9.svg',
-          format: 'wide',
-          body: 'Governments at all levels employ more people than any other single industry with 24.4 million people, or over 17 percent of all employees. The next largest is education and health care (20.4 million), followed by professional and business services (18.1 million). Combined, the service industry accounts for 68 percent of all employees. Goods-producing industries, such as manufacturing and mining, only account for about 19 million jobs (14 percent) with the most coming from manufacturing with 11.9 million.',
-          callout: 'Total employment in 2012 for full and part-time work was 139,741,000 people, lower than the 139,770,000 people employed in 2005.',
-          source: 'Source: Bureau of Economic Analysis.'
+          url: 'Chapter-2',
+          name: 'Chapter 2',
+          subtitle: 'Who Are America’s Businesses?',
+          image: 'images/chapter2-bg.jpg',
+          format: 'chapter',
+          body: ['Businesses serve nearly every need of our daily lives and come in all shapes and sizes. Small businesses, large businesses, and international businesses, we have them all in America. There are companies with hundreds of thousands of employees, millions of shareholders, and tens of millions of customers, and there are companies with one person—who is both the worker and the shareholder—and a handful of clients.',
+            'In total, the United States is home to over 32.5 million businesses, nearly 150 million workers, and trillions of dollars of productivity.',
+            'Ninety-five percent of businesses are pass-through entities. These businesses pay taxes on individual tax returns and are organized as sole proprietorships, partnerships, and S corporations.',
+            'We often think of pass-throughs as small businesses. While this is generally true, some pass-through businesses can be very large and rival large C corporations in terms of size.',
+            'On average, though, C corporations are 30 times larger than pass-throughs in terms of revenue. Their employees often tend to receive higher incomes than pass-through businesses and, despite there being far fewer C corporations relative to pass-through businesses, C corporations earn about 40 percent of all business income in the U.S.',
+            'The comparable economic footprint of C corporations and pass-through businesses means tax reform must fix the entire tax code, as both types of businesses are crucial to the future economic success of the United States.']
         }
       ];
 
