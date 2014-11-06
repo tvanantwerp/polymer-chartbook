@@ -35,7 +35,7 @@
           <core-menu valueattr="url" selected="{{route}}" on-core-select="{{menuItemSelected}}">
 
             <template repeat="{{page in pages}}">
-              <chartbook-item label="{{page.name}}" url="{{page.url}}" selected="{{route}}">
+              <chartbook-item label="{{page.name}}" url="{{page.url}}" selected="{{route}}" class="{{ {'chapter-item': page.format == 'chapter'} | tokenList }}">
                 <a href="#{{page.url}}"></a>
               </chartbook-item>
             </template>
@@ -150,17 +150,13 @@
           url: 'Chapter-1',
           name: 'Chapter 1',
           subtitle: 'The U.S. Economy is Treading Water',
-          chart: '',
-          share: '',
           format: 'chapter',
           body: ['The global recession was tough on the U.S. economy, and many Americans are still feeling the effects.',
             'Five years into the recovery, economic growth has remained persistently sluggish. Median household incomes are below the levels seen in 2000 and the percent of people employed is at its lowest level in over 30 years. To make matter worse, U.S. saving and investment are in long term decline and businesses are barely investing enough to keep pace with the wearing out of equipment and structures.',
             'The U.S. economy is treading water. A big reason for the economic malaise in the United States is how the tax code treats businesses and private business owners.',
             'For starters, the U.S. has one of the least competitive tax codes in the developed world. U.S. corporations face the third highest tax rate in the entire world, behind only Chad and the United Arab Emirates, and rules on foreign-earned income that discourages corporations from reinvesting in the United States.',
             'The tax isn’t any better for non-corporate businesses. Pass-through businesses face an overly complex and burdensome tax code with small businesses reporting compliance costs of $19 billion per year. To add on, a 2012 tax increase raised tax rates on some pass-through businesses to over 50 percent in some states. It also increased tax rates on investment by nearly 60 percent.',
-            'The increasingly burdensome tax code makes it more and more difficult to build and grow a business. This has a real impact on real people. If we want our economy to achieve its potential, we need to better understand the current make up of U.S. businesses and their interaction with the tax code.'],
-          callout: '',
-          source: ''
+            'The increasingly burdensome tax code makes it more and more difficult to build and grow a business. This has a real impact on real people. If we want our economy to achieve its potential, we need to better understand the current make up of U.S. businesses and their interaction with the tax code.']
         },
         {
           url: 'Business-Income-Ebbs-and-Flows-with-the-Economy',

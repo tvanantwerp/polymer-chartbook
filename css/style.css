@@ -59,8 +59,18 @@ core-menu > chartbook-item {
   transition: all 300ms ease-in-out;
 }
 
+core-menu > chartbook-item.chapter-item {
+  background-color: #366899;
+  color: #fff;
+}
+
 core-menu > chartbook-item.core-selected {
   background: #e1f5fe;
+}
+
+core-menu > chartbook-item.core-selected.chapter-item {
+  background-color: #5e96cd;
+  color: #fff;
 }
 
 .page-container {
@@ -84,8 +94,25 @@ core-menu > chartbook-item.core-selected {
 }
 
 .chapter {
-  background-color: #4444FF;
+  background: url(../images/chapter-bg.jpg) no-repeat;
+  background-size: cover;
   color: #fff;
+}
+
+.chapter h1 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  line-height: 28px;
+  text-transform: uppercase;
+}
+
+.chapter h2 {
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 48px;
+  margin: 0 0 20px;
+  text-transform: uppercase;
 }
 
 .chapter-body {
@@ -118,19 +145,17 @@ core-menu > chartbook-item.core-selected {
     width: 100%;
   }
 
-  .chapter-body {
-    column-count: 1;
-    column-gap: 20px;
-    -moz-column-count: 1;
-    -moz-column-gap: 20px;
-    -webkit-column-count: 1;
-    -webkit-column-gap: 20px;
-  }
 }
 
 @media all and (max-width: 1000px) {
   .square {
     float: none;
     width: 100%;
+  }
+
+  .chapter-body {
+    column-count: 1;
+    -moz-column-count: 1;
+    -webkit-column-count: 1;
   }
 }
