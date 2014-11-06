@@ -51,7 +51,7 @@ body /deep/ core-toolbar {
 
 core-menu {
   color: #01579b;
-  margin: 10px 0 0 0;
+  margin:  0;
   overflow-y: auto;
 }
 
@@ -62,6 +62,10 @@ core-menu > chartbook-item {
 core-menu > chartbook-item.chapter-item {
   background-color: #366899;
   color: #fff;
+  font-weight: 700;
+  letter-spacing: 3px;
+  padding: 20px 12px;
+  text-transform: uppercase;
 }
 
 core-menu > chartbook-item.core-selected {
