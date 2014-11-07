@@ -36,6 +36,10 @@
 
           <core-menu valueattr="url" selected="{{route}}" on-core-select="{{menuItemSelected}}">
 
+            <chartbook-item label="Introduction" url="introduction" selected="{{route}}" class="intro-item">
+              <a href="#introduction"></a>
+            </chartbook-item>
+
             <template repeat="{{page in pages}}">
               <chartbook-item label="{{page.name}}" url="{{page.url}}" selected="{{route}}" class="{{ {'chapter-item': page.format == 'chapter'} | tokenList }}">
                 <a href="#{{page.url}}"></a>
@@ -53,10 +57,32 @@
 
         <div layout horizontal center-center fit>
           <core-animated-pages id="pages" valueattr="url" selected="{{route}}" transitions="slide-from-right">
+
+            <section url="cover" class="cover">
+              <div class="page-container">
+                <img src="images/cover.svg">
+              </div>
+            </section>
+
+            <section url="introduction" layout>
+              <div class="page-container">
+                <h1 style="color:#757575;font-size:48px;margin:0 0 20px;">Introduction</h1>
+                <div style="column-count:2;column-gap:20px;-moz-column-count: 2;-moz-column-gap: 20px;-webkit-column-count: 2;-webkit-column-gap: 20px;">
+                  <span style="color:#085197;font-weight:700"><p>Americans often look at businesses impersonally. We think of them as lifeless entities that earn profits and don’t do much else. When we think of businesses this way, it becomes very easy to think that business taxes are somehow different than other taxes.</p>
+                  <p>But the reality is that businesses are simply groups of people; they are workers, consumers, and shareholders.</p></span>
+                  <p>This means that when we tax businesses, we actually tax people; workers through lower wages, consumers through higher prices, and shareholders through lower returns. Furthermore, the majority of businesses are, in fact, a person that the tax code treats as a business.</p>
+                  <p>In the United States, we place a heavy tax burden on businesses. Our corporations face the highest tax rate and the most burdensome international tax rules in the developed world. Our non-corporate businesses face high tax rates, too, reaching above 50 percent in some states. Furthermore, our tax code actively discourages investment by double taxing that investment at high rates.</p>
+                  <p>America’s high-tax environment stifles the economy and makes work and investment more expensive. This is bad for long-term prosperity.</p>
+                  <p>The good news is that there is a solution. Tax reform that lowers taxes on businesses and investment can create jobs, increase incomes, and lead to higher living standards.</p>
+                  <p>This book is your visual guide to business taxes in America. It discusses the vast array of business types and sizes, the sectors of the economy they serve, and the effects of taxes on U.S. businesses and the people who build, create, and maintain them.</p>
+                </div>
+              </div>
+            </section>
+
             <template repeat="{{page in pages}}">
 
               <template if="{{page.format == 'chapter'}}">
-                <section style="background-image:url({{page.image}})" class="chapter" url="{{page.url}}" layout>
+                <section style="background-image:url({{page.image}})" class="{{page.format}}" url="{{page.url}}" layout>
                   <div class="page-container">
                     <div style="text-align: center">
                       <h1>{{page.name}}</h1>
@@ -97,7 +123,7 @@
     <script src="bower_components/hammerjs/hammer.js"></script>
     <script>
     (function() {
-      var DEFAULT_ROUTE = 'Chapter-1';
+      var DEFAULT_ROUTE = 'cover';
 
       var template = document.querySelector('template[is="auto-binding"]');
 
@@ -461,6 +487,97 @@
             'This is bad for the economy. Corporate taxes increase the cost of investment, and investment is a key driver of economic growth. In fact, studies show that corporate taxes are the most harmful taxes to economic growth and lead to fewer jobs, lower wages, and lower living standards.',
             'However, corporate taxes aren’t just bad for the economy; they’re bad for people. As we know, corporations are simply groups of people—organizations of workers, shareholders, and consumers. This means that when we tax corporations at high rates, it’s really these people that pay the tax. Workers pay for it through lower wages, shareholders pay for it through lower returns, and consumers pay for it through higher prices.',
             'It’s likely that you fall into one of these three groups. Even if you don’t work for a corporation, you’re probably a shareholder through your retirement account, a customer, or both. As taxpayers, it’s important to realize that a tax on a corporation could end up as a hidden tax on yourself.']
+        },
+        {
+          url: 'Chapter-6',
+          name: 'Chapter 6',
+          subtitle: 'The International Corporate Tax System Is Outdated',
+          image: 'images/chapter6-bg.jpg',
+          format: 'chapter',
+          body: ['U.S. businesses, like those in other countries, have greatly increased the amount of business they conduct internationally. This has required countries to rethink how they structure their corporate tax systems. While many countries have reformed their tax codes to remain welcoming to business, the United States has stood firm with its unfriendly tax system.',
+            'The U.S. is one of the remaining six OECD countries with an outdated worldwide system of taxation. This means that U.S. corporations are liable to pay the U.S. federal corporate tax rate of 35 percent on every dollar of income, no matter where in the world a corporation earns that income, when that money is brought back to the U.S.',
+            'As a result of the worldwide tax system, U.S. companies are disadvantaged when competing in foreign countries. For example, when a U.S. business competes with a French business anywhere in the world, the U.S. business is hit with an additional tax that the French business doesn’t have to pay. This is because France—along with almost all of the OECD—only taxes businesses on income they earn within France.',
+            'In 2010, U.S. corporations paid $128 billion in corporate income taxes to foreign countries on income of $470 billion, an effective tax rate of 27.2 percent. This is all before they paid additional taxes to the U.S. government on that same income.',]
+        },
+        {
+          url: '95-Percent-of-the-World’s-Population-Is-Outside-the-US-Borders',
+          name: '95 Percent of the World’s Population Is Outside the U.S. Borders',
+          subtitle: 'The U.S. Share of the World’s Population',
+          image: 'images/6_1.svg',
+          format: 'square',
+          body: ['In the last couple decades, the global economy has rapidly developed. This has increased the incomes of people throughout the world. As a result, demand for American goods and services abroad has also increased. In order for U.S. businesses to stay competitive in today’s global market, they must meet that demand. Today, 95 percent of potential consumers live outside of the United States.'],
+          callout: '',
+          source: 'Source: World Bank.'
+        },
+        {
+          url: 'US-Corporations-Are-Earning-More-Money-and-Paying-More-Taxes-Overseas',
+          name: 'U.S. Corporations Are Earning More Money and Paying More Taxes Overseas',
+          subtitle: 'Foreign Taxable Earnings and Taxes Paid by U.S. Companies, 1992–2010 ',
+          image: 'images/6_2.svg',
+          format: 'wide',
+          body: ['As U.S. multinationals expand operations overseas, their income earned abroad increases. Over the past 18 years, the amount of income that U.S. multinationals have reported earning overseas has grown substantially. According to IRS data, foreign taxable income grew in real terms by 248 percent, from a little less than $150 billion to more than $450 billion between 1992 and 2010. As a result, the foreign tax liability of U.S. corporations has grown. Over the same timeframe, foreign taxes paid grew by 265 percent from $35 billion to a little under $130 billion.'],
+          callout: '',
+          source: 'Source: IRS Form 1118.'
+        },
+        {
+          url: 'The-US-Tax-Code-Puts-US-Multinationals-at-a-Disadvantage',
+          name: 'The U.S. Tax Code Puts U.S. Multinationals at a Disadvantage',
+          subtitle: 'Comparing the Tax Bill of a U.S. and a French Corporation in the UK',
+          image: 'images/6_3.svg',
+          format: 'square',
+          body: ['To understand how a worldwide tax system like that of the U.S. harms the competitiveness of a company, one can look at how it affects a single U.S. company operating overseas. The two multinationals in this example are operating in the UK. One is based in France, which has a territorial tax system. The other is based in the U.S., which has a worldwide tax system. Both of these companies earn $100 in profits. As a result, they both pay the UK’s corporate tax rate of 21 percent. The French company then brings those profits back to France untouched by the French government. For the U.S. company, the United States will place an additional tax on those profits if the company brings them back. At the end of the day, the French company comes out on top, with higher after-tax returns simply due to the U.S.’s additional tax on foreign profits.'],
+          callout: '',
+          source: 'Source: Tax Foundation.'
+        },
+        {
+          url: 'The-Number-of-Worldwide-Tax-Systems-Has-Declined-Over-the-Last-Century',
+          name: 'The Number of Worldwide Tax Systems Has Declined Over the Last Century',
+          subtitle: 'Number of OECD Countries with Worldwide Tax Systems',
+          image: 'images/6_4.svg',
+          format: 'square',
+          body: ['As the global market has expanded, countries have recognized the competitive disadvantage worldwide tax systems place on their businesses and have adjusted their tax system to fit this new reality. At the beginning of the 20th century, 33 countries had a worldwide tax system. That number slowly dropped to 24 countries by the 1980s. By the 2000s, the number of countries switching to territorial systems accelerated, with more than 10 countries switching in 10 short years. Nearly all developed countries have moved to the superior territorial tax system that exempts the foreign earnings of domestic corporations. This system of taxation allows their multinational corporations to compete both overseas and domestically on an equal footing. Today, the United States is one of the remaining 6 OECD countries that continues to tax its multinationals’ worldwide income.'],
+          callout: '',
+          source: 'Source: Tax Foundation.'
+        },
+        {
+          url: 'The-Effective-Tax-Rate-on-US-Foreign-Corporate-Earnings-Has-Averaged-Above-25-Percent-Since-1992',
+          name: 'The Effective Tax Rate on U.S. Foreign Corporate Earnings Has Averaged Above 25 Percent Since 1992',
+          subtitle: 'TEffective Tax Rate on Foreign Taxable Earnings, 1992–2010 ',
+          image: 'images/6_5.svg',
+          format: 'wide',
+          body: ['While U.S. multinationals’ foreign taxable income and taxes paid have grown, the effective tax rate on this income has remained steady. The average effective tax rate on foreign earned income between 1992 and 2010 was 26.4 percent. The lowest effective tax rate paid on this income was 24.9 percent in 1999. The highest effective tax rate on foreign-earned income was 29.3 percent in 2008. The most recent data indicates an effective tax rate of 27.2 percent, an effective rate higher than the nineteen-year average.'],
+          callout: '',
+          source: 'Source: Tax Foundation; IRS Form 1118 (1992–2010).'
+        },
+        {
+          url: 'Most-Foreign-Corporate-Income-Is-Earned-in-Europe-and-Asia',
+          name: 'Most Foreign Corporate Income Is Earned in Europe and Asia',
+          subtitle: 'Share of Foreign Earned Income and Foreign Corporate Income Taxes Paid by Region',
+          image: 'images/4_6.svg',
+          format: 'square',
+          body: ['U.S. corporations do business in every part of the world. However, most foreign income was concentrated in two regions. In 2010, U.S. multinationals reported the most activity in European countries. They reported $206.8 billion in income originating in Europe and paid $63.6 billion in corporate income taxes to European governments. This represents about half of all foreign taxable income and foreign taxes paid for 2010. Asia had the second-largest concentration of reported foreign taxable income, with U.S. corporations reporting $83.4 billion in taxable income and $21.6 billion in taxes paid.'],
+          callout: 'Combined, Europe and Asia accounted for 62 percent of all foreign taxable income and 67 percent of all corporate income taxes paid reported by U.S. multinationals in 2010. ',
+          source: 'Source: IRS Form 1118 (2010).'
+        },
+        {
+          url: 'The-Effective-Tax-Rate-on-Foreign-Earnings-Varies-by-Region',
+          name: 'The Effective Tax Rate on Foreign Earnings Varies by Region',
+          subtitle: 'Effective Corporate Tax Rate on Foreign Earnings by Region',
+          image: 'images/6_7.svg',
+          format: 'square',
+          body: ['Although all U.S. multinationals will end up paying at least a 35 percent effective tax rate on their foreign active earnings once they are repatriated, the effective rate these earnings face in foreign countries and regions can vary substantially. U.S. corporations faced the highest effective tax rate on their foreign earnings (49.2 percent) in Africa in 2010. Latin America followed with an effective rate of 33.5 percent. The third highest effective rate was paid in Europe (30.7 percent), where a majority of foreign-earned income was reported in 2010. Only two regions (Oceania and Other Countries) had effective tax rates on foreign earnings below 25 percent.'],
+          callout: '',
+          source: 'Source: Tax Foundation; IRS Form 1118.'
+        },
+        {
+          url: 'Effective-Tax-Rates-on-Foreign-Income-Vary-Substantially-by-Industry',
+          name: 'Effective Tax Rates on Foreign Income Vary Substantially by Industry',
+          subtitle: 'Effective Foreign Tax Rates by Industry ',
+          image: 'images/6_8.svg',
+          format: 'square',
+          body: ['The effective corporate income tax rate faced by corporations overseas varies by industry. According to the most recent IRS data, Petroleum and coal products companies faced an effective corporate tax rate of 36 percent, higher than any other industry. This was followed by Mining (35 percent) and Services (32 percent). Manufacturers, which accounted for a large portion of foreign-earned income, faced an average effective corporate tax rate of 22 percent on their foreign earnings.'],
+          callout: 'Although the foreign effective tax rate across industries differ, these companies will end up paying at least a 35 percent corporate tax rate on all their foreign earnings due to the U.S.’s worldwide corporate tax system.',
+          source: 'Note: Manufacturing does not include Petroleum and coal products. Source: IRS Form 1118; Tax Foundation calculations.'
         }
       ];
 
