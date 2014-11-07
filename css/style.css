@@ -49,9 +49,13 @@ body /deep/ core-toolbar {
   color: #fff !important;
 }
 
+nav {
+  height: 100%;
+}
+
 core-menu {
   color: #01579b;
-  height: 100vh;
+  height: 92%;
   margin:  0;
   overflow-y: auto;
 }
