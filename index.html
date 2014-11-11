@@ -20,6 +20,15 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+    <meta property="og:title" content="Business In America Illustrated" />
+    <meta property="og:image" content="http://interactive.taxfoundation.org/business-in-america/images/BIA-Cover.png" />
+    <meta property="og:description" content="This book is your visual guide to business taxes in America. It discusses the vast array of business types and sizes, the sectors of the economy they serve, and the effects of taxes on U.S. businesses and the people who build, create, and maintain them.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@taxfoundation">
+    <meta name="twitter:creator" content="@taxfoundation">
+    <meta name="twitter:title" content="Business In America Illustrated">
+    <meta name="twitter:description" content="This book is your visual guide to business taxes in America. It discusses the vast array of business types and sizes, the sectors of the economy they serve, and the effects of taxes on U.S. businesses and the people who build, create, and maintain them.">
+    <meta name="twitter:image:src" content="http://interactive.taxfoundation.org/business-in-america/images/BIA-Cover.png">
   </head>
 
   <body unresolved fullbleed>
@@ -64,8 +73,51 @@
           <core-animated-pages id="pages" valueattr="url" selected="{{route}}" transitions="slide-from-right">
 
             <section url="cover" class="cover">
-              <div class="page-container">
+              <div class="page-container" style="text-align:center">
                 <img src="images/cover.svg">
+                <p class="share-buttons">
+                      <a 
+                        class="social-link-no-bg facebook" 
+                        href="http://www.facebook.com/share.php?u={{rootUrl}}" 
+                        id="fb-share" 
+                        rel="nofollow" 
+                        target="_blank" 
+                        title="Share on Facebook">
+                          <i class="fa fa-facebook"></i><span class="hide-on-small"> Share</span>
+                      </a>
+                      <a 
+                        class="social-link-no-bg twitter" 
+                        href="http://twitter.com/home?status=Business%20in%20America%20via%20@TaxFoundation%20{{rootUrl}}" 
+                        id="tweet" 
+                        rel="nofollow" 
+                        target="_blank" 
+                        title="Tweet this content">
+                          <i class="fa fa-twitter"></i><span class="hide-on-small"> Tweet</span>
+                      </a>
+                      <a 
+                        class="social-link-no-bg linkedin" 
+                        href="http://www.linkedin.com/shareArticle?mini=true&url={{rootUrl}}" 
+                        id="linkedin" 
+                        rel="nofollow" 
+                        target="_blank" 
+                        title="Share on LinkedIn">
+                          <i class="fa fa-linkedin"></i><span class="hide-on-small"> LinkedIn</span>
+                      </a>
+                      <a 
+                        class="social-link-no-bg gplus" 
+                        href="https://plus.google.com/share?url={{rootUrl}}" 
+                        id="gplus-share" 
+                        title="Plus 1 on Google+">
+                          <i class="fa fa-google-plus"></i>
+                      </a>
+                      <a 
+                        class="social-link-no-bg email" 
+                        href="mailto:?body=Take a look at this chart I found: {{page.name}}. You can see it here: {{rootUrl}}" 
+                        id="email-share" 
+                        title="Email to a Friend">
+                          <i class="fa fa-envelope"></i>
+                      </a>
+                    </p>
               </div>
             </section>
 
@@ -137,7 +189,7 @@
                     <p class="share-buttons">
                       <a 
                         class="social-link facebook" 
-                        href="http://www.facebook.com/share.php?u={{rootUrl + '#' + page.url}}" 
+                        href="http://www.facebook.com/share.php?u={{rootUrl + '%23' + page.url}}" 
                         id="fb-share" 
                         rel="nofollow" 
                         target="_blank" 
@@ -146,7 +198,7 @@
                       </a>
                       <a 
                         class="social-link twitter" 
-                        href="http://twitter.com/home?status={{page.name}}%20via%20@TaxFoundation%20{{rootUrl + '#' + page.url}}" 
+                        href="http://twitter.com/home?status={{page.name}}%20via%20@TaxFoundation%20{{rootUrl + '%23' + page.url}}" 
                         id="tweet" 
                         rel="nofollow" 
                         target="_blank" 
@@ -155,7 +207,7 @@
                       </a>
                       <a 
                         class="social-link linkedin" 
-                        href="http://www.linkedin.com/shareArticle?mini=true&url={{rootUrl + '#' + page.url}}" 
+                        href="http://www.linkedin.com/shareArticle?mini=true&url={{rootUrl + '%23' + page.url}}" 
                         id="linkedin" 
                         rel="nofollow" 
                         target="_blank" 
@@ -164,14 +216,14 @@
                       </a>
                       <a 
                         class="social-link gplus" 
-                        href="https://plus.google.com/share?url={{rootUrl + '#' + page.url}}" 
+                        href="https://plus.google.com/share?url={{rootUrl + '%23' + page.url}}" 
                         id="gplus-share" 
                         title="Plus 1 on Google+">
                           <i class="fa fa-google-plus"></i>
                       </a>
                       <a 
                         class="social-link email" 
-                        href="mailto:?body=Take a look at this chart I found: {{page.name}}. You can read it here: {{rootUrl + '#' + page.url}}" 
+                        href="mailto:?body=Take a look at this chart I found: {{page.name}}. You can see it here: {{rootUrl + '#' + page.url}}" 
                         id="email-share" 
                         title="Email to a Friend">
                           <i class="fa fa-envelope"></i>
@@ -262,6 +314,7 @@
           subtitle: 'The U.S. Economy is Treading Water',
           image: 'images/chapter1-bg.jpg',
           format: 'chapter',
+          chapterColor: '#064970',
           body: ['The global recession was tough on the U.S. economy, and many Americans are still feeling the effects.',
             'Five years into the recovery, economic growth has remained persistently sluggish. Median household incomes are below the levels seen in 2000 and the percent of people employed is at its lowest level in over 30 years. To make matter worse, U.S. saving and investment are in long term decline and businesses are barely investing enough to keep pace with the wearing out of equipment and structures.',
             'The U.S. economy is treading water. A big reason for the economic malaise in the United States is how the tax code treats businesses and private business owners.',
@@ -286,7 +339,7 @@
           image: 'images/1_2.svg',
           format: 'square',
           body: ['The global financial crisis dramatically harmed the U.S. economy, reducing overall output by $455 billion in real terms. Typically after recessions, the economy quickly recovers. However, this recovery has not been quick. While the U.S. economy has been growing for the past couple of years, it has been slow—too slow to fully recover from the crisis. In fact, the Congressional Budget Office (CBO) projects that the U.S. economy will permanently remain below the pre-recession trend. This permanent gap due to the recession means that the economy will still be $4.5 trillion below its previous trend by 2020.'],
-          callout: 'Owners of pass-through entities pay taxes on their individual tax returns. Thus, the income is "passed through" the business to the shareholders.',
+          callout: '',
           source: 'Source: Congressional Budget Office; Tax Foundation calculations.'
         },
         {
@@ -335,6 +388,7 @@
           subtitle: 'Who Are America’s Businesses?',
           image: 'images/chapter2-bg.jpg',
           format: 'chapter',
+          chapterColor: '#3a4faa',
           body: ['Businesses serve nearly every need of our daily lives and come in all shapes and sizes. Small businesses, large businesses, and international businesses, we have them all in America. There are companies with hundreds of thousands of employees, millions of shareholders, and tens of millions of customers, and there are companies with one person—who is both the worker and the shareholder—and a handful of clients.',
             'In total, the United States is home to over 32.5 million businesses, nearly 150 million workers, and trillions of dollars of productivity.',
             'Ninety-five percent of businesses are pass-through entities. These businesses pay taxes on individual tax returns and are organized as sole proprietorships, partnerships, and S corporations.',
@@ -419,6 +473,7 @@
           subtitle: 'Pass-through Businesses in the United States',
           image: 'images/chapter3-bg.jpg',
           format: 'chapter',
+          chapterColor: '#a12a47',
           body: ['Pass-through businesses are now the dominant business structure in America, with over 30 million tax returns in 2011. Many people typically think of pass-through businesses as small businesses, and in many cases, they are. There is a good chance that your local laundromat, neighborhood restaurant, your employer, or even your own business organizes as a pass-through.',
             'This doesn’t mean that all pass-throughs are small businesses, though. In some cases, pass-through businesses are very large, with tens of thousands, or even hundreds of thousands, of employees and billions of dollars in revenue.',
             'So what makes a business a pass-through entity? This is determined by how owners of the business elect to structure their ownership stake and pay the business’s taxes. When a pass-through business earns a profit, the business does not send the check for the tax to the IRS. Instead, the profit is passed through the business and onto the tax returns of the owners of the business. The owners then write the check and pay the tax to the IRS.',
@@ -490,6 +545,7 @@
           subtitle: 'The U.S. Corporate Tax System Is Uncompetitive',
           image: 'images/chapter4-bg.jpg',
           format: 'chapter',
+          chapterColor: '#0e96ae',
           body: ['While most businesses are pass-throughs, corporations are also crucial to the U.S. economy. Corporations tend to be significantly larger than pass-throughs and often compete with businesses in overseas markets.',
             'In our globalized world, countries must make a greater effort to attract businesses with a competitive tax code. Unfortunately for the United States and its corporations, the U.S. has one of the least competitive corporate tax codes among the 34 members of the Organization for Economic Cooperation and Development (OECD).',
             'The United States is home to the highest corporate tax rate in the developed world at 39.1 percent and third highest in the entire world, behind only Chad and the United Arab Emirates. To pile on, the U.S. has some of the highest taxes on capital gains and dividend income, the second highest integrated corporate tax rate in the OECD at 57.1 percent—behind only France—and the OECD’s highest effective tax rate on corporate investment.',
@@ -563,7 +619,7 @@
           image: 'images/4_7.svg',
           format: 'square',
           body: ['When a corporation considers an investment, the cost of taxes plays an important part in its decision—and not just corporate taxes. Property taxes, sales taxes, and complex depreciation systems all combine to decrease the after-tax profit from an investment. In the U.S., all these taxes combine for the highest marginal effective tax rate on investment in the developed world of 35.3 percent.'],
-          callout: 'When a corporation considers an investment, the cost of taxes plays an important part in its decision—and not just corporate taxes. Property taxes, sales taxes, and complex depreciation systems all combine to decrease the after-tax profit from an investment. In the U.S., all these taxes combine for the highest marginal effective tax rate on investment in the developed world of 35.3 percent.',
+          callout: 'The marginal effective tax rate represents the tax cost for each additional dollar of investment made by a business. A high rate deters businesses from building new plants or buying more equipment.',
           source: 'Source: Jack Mintz & Duanjie Chen, The Effective Corporate Tax Rate: Myth and the Fact, Tax Foundation Special Report No. 214.'
         },
         {
@@ -572,6 +628,7 @@
           subtitle: 'U.S. Corporations Pay a Lot in Taxes',
           image: 'images/chapter5-bg.jpg',
           format: 'chapter',
+          chapterColor: 'rgb(0,167,119)',
           body: ['The U.S.’s uncompetitive corporate tax code has a cost. Between 1994 and 2011, U.S. corporations paid a total of $13 trillion in all types of taxes to governments around the world. Even after exemptions and deductions, U.S. corporations in almost every industry faced effective income tax rates above 30 percent on all their income.',
             'This is bad for the economy. Corporate taxes increase the cost of investment, and investment is a key driver of economic growth. In fact, studies show that corporate taxes are the most harmful taxes to economic growth and lead to fewer jobs, lower wages, and lower living standards.',
             'However, corporate taxes aren’t just bad for the economy; they’re bad for people. As we know, corporations are simply groups of people—organizations of workers, shareholders, and consumers. This means that when we tax corporations at high rates, it’s really these people that pay the tax. Workers pay for it through lower wages, shareholders pay for it through lower returns, and consumers pay for it through higher prices.',
@@ -643,6 +700,7 @@
           subtitle: 'The International Corporate Tax System Is Outdated',
           image: 'images/chapter6-bg.jpg',
           format: 'chapter',
+          chapterColor: '#6c3189',
           body: ['U.S. businesses, like those in other countries, have greatly increased the amount of business they conduct internationally. This has required countries to rethink how they structure their corporate tax systems. While many countries have reformed their tax codes to remain welcoming to business, the United States has stood firm with its unfriendly tax system.',
             'The U.S. is one of the remaining six OECD countries with an outdated worldwide system of taxation. This means that U.S. corporations are liable to pay the U.S. federal corporate tax rate of 35 percent on every dollar of income, no matter where in the world a corporation earns that income, when that money is brought back to the U.S.',
             'As a result of the worldwide tax system, U.S. companies are disadvantaged when competing in foreign countries. For example, when a U.S. business competes with a French business anywhere in the world, the U.S. business is hit with an additional tax that the French business doesn’t have to pay. This is because France—along with almost all of the OECD—only taxes businesses on income they earn within France.',
@@ -691,7 +749,7 @@
         {
           url: 'The-Effective-Tax-Rate-on-US-Foreign-Corporate-Earnings-Has-Averaged-Above-25-Percent-Since-1992',
           name: 'The Effective Tax Rate on U.S. Foreign Corporate Earnings Has Averaged Above 25 Percent Since 1992',
-          subtitle: 'TEffective Tax Rate on Foreign Taxable Earnings, 1992–2010 ',
+          subtitle: 'Effective Tax Rate on Foreign Taxable Earnings, 1992–2010 ',
           image: 'images/6_5.svg',
           format: 'wide',
           body: ['While U.S. multinationals’ foreign taxable income and taxes paid have grown, the effective tax rate on this income has remained steady. The average effective tax rate on foreign earned income between 1992 and 2010 was 26.4 percent. The lowest effective tax rate paid on this income was 24.9 percent in 1999. The highest effective tax rate on foreign-earned income was 29.3 percent in 2008. The most recent data indicates an effective tax rate of 27.2 percent, an effective rate higher than the nineteen-year average.'],
@@ -702,8 +760,8 @@
           url: 'Most-Foreign-Corporate-Income-Is-Earned-in-Europe-and-Asia',
           name: 'Most Foreign Corporate Income Is Earned in Europe and Asia',
           subtitle: 'Share of Foreign Earned Income and Foreign Corporate Income Taxes Paid by Region',
-          image: 'images/4_6.svg',
-          format: 'square',
+          image: 'images/6_6.svg',
+          format: 'wide',
           body: ['U.S. corporations do business in every part of the world. However, most foreign income was concentrated in two regions. In 2010, U.S. multinationals reported the most activity in European countries. They reported $206.8 billion in income originating in Europe and paid $63.6 billion in corporate income taxes to European governments. This represents about half of all foreign taxable income and foreign taxes paid for 2010. Asia had the second-largest concentration of reported foreign taxable income, with U.S. corporations reporting $83.4 billion in taxable income and $21.6 billion in taxes paid.'],
           callout: 'Combined, Europe and Asia accounted for 62 percent of all foreign taxable income and 67 percent of all corporate income taxes paid reported by U.S. multinationals in 2010. ',
           source: 'Source: IRS Form 1118 (2010).'
@@ -734,6 +792,7 @@
           subtitle: 'What Would Happen If We Fixed the Tax Code?',
           image: 'images/chapter7-bg.jpg',
           format: 'chapter',
+          chapterColor: '#7b314a',
           body: ['Our current tax code isn’t good for business. It’s uncompetitive and imposes high tax rates on all types of business and investment. This is bad for the economy.',
             'Incomes are stagnant, and 2 percent economic growth appears to be the new normal. Meanwhile, U.S. saving is in long-term decline and investment is barely keeping pace with the wearing out of the buildings and equipment businesses require to work.',
             'We’ve tried nearly everything, but what would happen if we tried tax reform?',
@@ -747,8 +806,8 @@
           subtitle: 'Percent Change in GDP and Federal Revenues Due to Individual Tax Rate Changes',
           image: 'images/7_1.svg',
           format: 'wide',
-          body: ['Cutting the individual tax rate would have positive effects for economic growth by leaving more money available for investment and increasing the incentive to work. The often-discussed tax rate cut to 25 percent would grow the economy by nearly 2 percent and create 1.1 million jobs. However, it’s important to note that individual tax cuts would also result in lost revenue for the federal government. Conversely, raising individual tax rates would raise federal revenue, but at the cost of slower growth and lower incomes for everyone.'],
-          callout: 'Changes to individual tax rates affect pass-through businesses, because they pay taxes on individual tax returns.',
+          body: ['Corporate tax rate changes have large effects on GDP and minimal effects on total federal revenue. The large effects on GDP come from a lower cost of capital. The competitive nature of corporate taxes makes for strong responses to tax changes. If the corporate income tax were eliminated, the size of the economy would grow by 6.1 percent in the long run. This would lead to more jobs and higher wages. In turn, this would leave total federal revenue virtually unchanged.'],
+          callout: 'The loss of corporate tax revenue due to cutting the corporate tax rate is recouped through the combination of increased economic growth and the distribution of the untaxed money to taxpaying individuals.',
           source: 'Source: Tax Foundation Taxes and Growth Model.'
         },
         {
@@ -803,6 +862,16 @@
       ];
 
     })();
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-10513207-3', 'auto');
+      ga('send', 'pageview');
+
     </script>
   </body>
 </html>

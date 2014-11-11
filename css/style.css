@@ -30,7 +30,6 @@ p {
 core-animated-pages {
   width: 100%;
   height: 100%;
-  -webkit-user-select: none;
   overflow: hidden;
 }
 
@@ -38,6 +37,10 @@ core-animated-pages > * {
   background-color: white;
   padding: 16px;
   overflow-y: auto;
+  user-select: text;
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
 }
 
 body /deep/ core-scaffold core {
@@ -192,6 +195,19 @@ a.social-link {
   text-decoration:none;
   padding:6px 12px;
   margin: 0 .5rem 0 0;
+  -webkit-transition: background 0.1s linear;
+  -moz-transition: background 0.1s linear;
+  -ms-transition: background 0.1s linear;
+  -o-transition: background 0.1s linear;
+  transition: background 0.1s linear;
+}
+
+a.social-link-no-bg {
+  display:inline;
+  color: #fff;
+  text-decoration:none;
+  padding:6px 12px;
+  margin: 16px 8px 0 0;
   -webkit-transition: background 0.1s linear;
   -moz-transition: background 0.1s linear;
   -ms-transition: background 0.1s linear;
