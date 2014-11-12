@@ -1,0 +1,41 @@
+/*
+ * @license
+ * Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+ */
+
+html /deep/ chartbook-item {
+  display: block;
+  position: relative;
+  font-size: 15px;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 12px;
+}
+
+html /deep/ chartbook-item::shadow #ripple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+html /deep/ chartbook-item::shadow #icon {
+  margin-right: 8px;
+}
+
+html /deep/ chartbook-item::shadow ::content > a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
