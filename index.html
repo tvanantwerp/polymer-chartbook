@@ -229,8 +229,9 @@
                           <i class="fa fa-envelope"></i>
                       </a>
                     </p>
-
-                    <img class="{{page.format}}" src="{{page.image}}" />
+                    <template if="{{page.image.length > 0}}">
+                      <img class="{{page.format}}" src="{{page.image}}" />
+                    </template>
                     <template repeat="{{paragraph in page.body}}">
                       <p>{{paragraph}}</p>
                     </template>
