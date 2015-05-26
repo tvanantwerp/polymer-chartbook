@@ -76,44 +76,44 @@
               <div class="page-container" style="text-align:center">
                 <img src="images/cover.svg">
                 <p class="share-buttons">
-                      <a 
-                        class="social-link-no-bg facebook" 
-                        href="http://www.facebook.com/share.php?u={{rootUrl}}" 
-                        id="fb-share" 
-                        rel="nofollow" 
-                        target="_blank" 
+                      <a
+                        class="social-link-no-bg facebook"
+                        href="http://www.facebook.com/share.php?u={{rootUrl}}"
+                        id="fb-share"
+                        rel="nofollow"
+                        target="_blank"
                         title="Share on Facebook">
                           <i class="fa fa-facebook"></i><span class="hide-on-small"> Share</span>
                       </a>
-                      <a 
-                        class="social-link-no-bg twitter" 
-                        href="http://twitter.com/home?status=Business%20in%20America%20via%20@TaxFoundation%20{{rootUrl}}" 
-                        id="tweet" 
-                        rel="nofollow" 
-                        target="_blank" 
+                      <a
+                        class="social-link-no-bg twitter"
+                        href="http://twitter.com/home?status=Business%20in%20America%20via%20@TaxFoundation%20{{rootUrl}}"
+                        id="tweet"
+                        rel="nofollow"
+                        target="_blank"
                         title="Tweet this content">
                           <i class="fa fa-twitter"></i><span class="hide-on-small"> Tweet</span>
                       </a>
-                      <a 
-                        class="social-link-no-bg linkedin" 
-                        href="http://www.linkedin.com/shareArticle?mini=true&url={{rootUrl}}" 
-                        id="linkedin" 
-                        rel="nofollow" 
-                        target="_blank" 
+                      <a
+                        class="social-link-no-bg linkedin"
+                        href="http://www.linkedin.com/shareArticle?mini=true&url={{rootUrl}}"
+                        id="linkedin"
+                        rel="nofollow"
+                        target="_blank"
                         title="Share on LinkedIn">
                           <i class="fa fa-linkedin"></i><span class="hide-on-small"> LinkedIn</span>
                       </a>
-                      <a 
-                        class="social-link-no-bg gplus" 
-                        href="https://plus.google.com/share?url={{rootUrl}}" 
-                        id="gplus-share" 
+                      <a
+                        class="social-link-no-bg gplus"
+                        href="https://plus.google.com/share?url={{rootUrl}}"
+                        id="gplus-share"
                         title="Plus 1 on Google+">
                           <i class="fa fa-google-plus"></i>
                       </a>
-                      <a 
-                        class="social-link-no-bg email" 
-                        href="mailto:?body=Take a look at this chart I found: {{page.name}}. You can see it here: {{rootUrl}}" 
-                        id="email-share" 
+                      <a
+                        class="social-link-no-bg email"
+                        href="mailto:?body=Take a look at this chart I found: {{page.name}}. You can see it here: {{rootUrl}}"
+                        id="email-share"
                         title="Email to a Friend">
                           <i class="fa fa-envelope"></i>
                       </a>
@@ -165,8 +165,8 @@
             <template repeat="{{page in pages}}">
 
               <template if="{{page.format == 'chapter'}}">
-                <section style="background-image:url({{page.image}})" class="{{page.format}}" url="{{page.url}}" layout>
-                  <div class="page-container">
+                <section style="background-image:url({{page.image}}); padding: 0" class="{{page.format}}" url="{{page.url}}" vertical layout>
+                  <div class="page-container" style="background-color:{{page.chapterColor}}" flex>
                     <div style="text-align: center">
                       <h1>{{page.name}}</h1>
                       <h2>{{page.subtitle}}</h2>
@@ -187,44 +187,44 @@
                     <h2>{{page.subtitle}}</h2>
 
                     <p class="share-buttons">
-                      <a 
-                        class="social-link facebook" 
-                        href="http://www.facebook.com/share.php?u={{rootUrl + '%23' + page.url}}" 
-                        id="fb-share" 
-                        rel="nofollow" 
-                        target="_blank" 
+                      <a
+                        class="social-link facebook"
+                        href="http://www.facebook.com/share.php?u={{rootUrl + '%23' + page.url}}"
+                        id="fb-share"
+                        rel="nofollow"
+                        target="_blank"
                         title="Share on Facebook">
                           <i class="fa fa-facebook"></i><span class="hide-on-small"> Share</span>
                       </a>
-                      <a 
-                        class="social-link twitter" 
-                        href="http://twitter.com/home?status={{page.name}}%20via%20@TaxFoundation%20{{rootUrl + '%23' + page.url}}" 
-                        id="tweet" 
-                        rel="nofollow" 
-                        target="_blank" 
+                      <a
+                        class="social-link twitter"
+                        href="http://twitter.com/home?status={{page.name}}%20via%20@TaxFoundation%20{{rootUrl + '%23' + page.url}}"
+                        id="tweet"
+                        rel="nofollow"
+                        target="_blank"
                         title="Tweet this content">
                           <i class="fa fa-twitter"></i><span class="hide-on-small"> Tweet</span>
                       </a>
-                      <a 
-                        class="social-link linkedin" 
-                        href="http://www.linkedin.com/shareArticle?mini=true&url={{rootUrl + '%23' + page.url}}" 
-                        id="linkedin" 
-                        rel="nofollow" 
-                        target="_blank" 
+                      <a
+                        class="social-link linkedin"
+                        href="http://www.linkedin.com/shareArticle?mini=true&url={{rootUrl + '%23' + page.url}}"
+                        id="linkedin"
+                        rel="nofollow"
+                        target="_blank"
                         title="Share on LinkedIn">
                           <i class="fa fa-linkedin"></i><span class="hide-on-small"> LinkedIn</span>
                       </a>
-                      <a 
-                        class="social-link gplus" 
-                        href="https://plus.google.com/share?url={{rootUrl + '%23' + page.url}}" 
-                        id="gplus-share" 
+                      <a
+                        class="social-link gplus"
+                        href="https://plus.google.com/share?url={{rootUrl + '%23' + page.url}}"
+                        id="gplus-share"
                         title="Plus 1 on Google+">
                           <i class="fa fa-google-plus"></i>
                       </a>
-                      <a 
-                        class="social-link email" 
-                        href="mailto:?body=Take a look at this chart I found: {{page.name}}. You can see it here: {{rootUrl + '#' + page.url}}" 
-                        id="email-share" 
+                      <a
+                        class="social-link email"
+                        href="mailto:?body=Take a look at this chart I found: {{page.name}}. You can see it here: {{rootUrl + '#' + page.url}}"
+                        id="email-share"
                         title="Email to a Friend">
                           <i class="fa fa-envelope"></i>
                       </a>
@@ -312,16 +312,11 @@
         {
           url: 'Chapter-1',
           name: 'Chapter 1',
-          subtitle: 'The U.S. Economy is Treading Water',
+          subtitle: 'An Overview of the Illinois Economy',
           image: 'images/chapter1-bg.jpg',
           format: 'chapter',
-          chapterColor: '#064970',
-          body: ['The global recession was tough on the U.S. economy, and many Americans are still feeling the effects.',
-            'Five years into the recovery, economic growth has remained persistently sluggish. Median household incomes are below the levels seen in 2000 and the percent of people employed is at its lowest level in over 30 years. To make matter worse, U.S. saving and investment are in long term decline and businesses are barely investing enough to keep pace with the wearing out of equipment and structures.',
-            'The U.S. economy is treading water. A big reason for the economic malaise in the United States is how the tax code treats businesses and private business owners.',
-            'For starters, the U.S. has one of the least competitive tax codes in the developed world. U.S. corporations face the third highest tax rate in the entire world, behind only Chad and the United Arab Emirates, and rules on foreign-earned income that discourages corporations from reinvesting in the United States.',
-            'The tax isn’t any better for non-corporate businesses. Pass-through businesses face an overly complex and burdensome tax code with small businesses reporting compliance costs of $19 billion per year. To add on, a 2012 tax increase raised tax rates on some pass-through businesses to over 50 percent in some states. It also increased tax rates on investment by nearly 60 percent.',
-            'The increasingly burdensome tax code makes it more and more difficult to build and grow a business. This has a real impact on real people. If we want our economy to achieve its potential, we need to better understand the current make up of U.S. businesses and their interaction with the tax code.']
+          chapterColor: 'rgba(239,68,56,0.9)',
+          body: ['The following charts illustrate the current state of the Illinois economy, in addition to how it has fared over time. We show various economic indicators, including personal income per person, state gross domestic product, industry mix, employment composition, migration, and unemployment.']
         },
         {
           url: 'Economic-Growth-Has-Slowed-Since-2000',
