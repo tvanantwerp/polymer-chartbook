@@ -159,6 +159,7 @@ core-menu > chartbook-item.core-selected.chapter-item {
 }
 
 .chapter-body {
+  line-height: 1.5;
   max-width: 480px;
   margin: 0 auto;
 }
