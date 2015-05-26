@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 
 body {
+  color: rgb(33,33,33);
   font-family: "Lato", sans-serif;
   font-weight: 400;
 }
@@ -185,6 +186,10 @@ core-menu > chartbook-item.core-selected.chapter-item {
     width: 100%;
   }
 
+}
+
+.source {
+  color: rgb(117,117,117);
 }
 
 .share-buttons {
