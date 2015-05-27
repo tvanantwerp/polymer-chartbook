@@ -277,7 +277,7 @@
     (function() {
       var DEFAULT_ROUTE = 'cover';
 
-      var ROOT_URL = 'http://interactive.taxfoundation.org/business-in-america/'
+      var ROOT_URL = 'http://interactive.taxfoundation.org/illinois-illustrated/'
 
       var template = document.querySelector('template[is="auto-binding"]');
 
@@ -620,6 +620,73 @@
           chapterColor: 'rgba(20,76,156,0.9)',
           body: ['All taxes paid by businesses are ultimately borne by people—whether it’s in the form of higher prices, lower wages, or smaller returns on investment. In Illinois, businesses paid $32.3 billion in total taxes in 2013, primarily toward taxes other than the corporate income tax (the most recognizable type of business tax). In reality, many firms are pass-through entities such as limited liability companies (LLCs), S-corporations, and sole proprietorships that pay individual income taxes rather than corporate income taxes. Businesses also pay property, sales, and excise taxes, among others.',
             'Illinois’ business tax structure has several flaws. Not only is the corporate income tax rate comparatively high both regionally and nationally, the state has many business incentives that carve away at the tax base. Additional detrimental features exist, including application of the sales tax to several business inputs, lack of horizontal equity, and existence of a capital stock tax (a tax that most states have eliminated).']
+        },
+        {
+          url: 'businesses-dont-just-pay-corporate-income-tax',
+          name: 'Businesses Don’t Just Pay Corporate Income Taxes',
+          subtitle: 'Illinois’ Total State and Local Business Tax Liability by Tax Type (FY 2013)',
+          image: 'images/4-1.svg',
+          format: 'wide',
+          body: ['A common misconception is that corporate income taxes are the only tax cost for businesses. However, businesses pay a number of other taxes, including property taxes on real estate, sales taxes on the goods they use, and individual income taxes on business income (if they’re pass-through entities that file through the individual income tax code rather than the corporate income tax code).',
+          'Overall, Illinois businesses paid $32.3 billion in taxes in 2013, with the largest portion going to property taxes. '],
+          callout: '',
+          source: ['Source: Council on State Taxation and Ernst & Young LLP, Total state and local business taxes (FY 2013).']
+        },
+        {
+          url: 'businesses-pay-individual-income-taxes-too',
+          name: 'Businesses Pay Individual Income Taxes Too',
+          subtitle: 'Percent of Employer Businesses that Are Pass-Through Entities in Illinois’ Ten Largest Private Industries (2011)',
+          image: 'images/4-2.svg',
+          format: 'wide',
+          body: ['Firms that pay individual income taxes rather than corporate income taxes are known as “pass-through” or “flow-through” entities because business income “flows through” to the owner’s individual income tax return. Sole proprietorships, partnerships, and S- corporations are all types of pass-throughs.',
+          'Sixty-one percent of all employers with payroll in Illinois are pass-through entities, but that share varies for specific sectors of the economy. However, it’s important to note that even though this page breaks down the total number of employer firms, when we consider the aggregate number of workers at businesses with payroll in Illinois, most of them work at traditional corporations (known as C-corporations).'],
+          callout: '',
+          source: ['Note: Industries listed are the ten largest private sector industries in Illinois as determined by share of total state GDP. This does not include non-employer firms.',
+          'Source: Census Bureau, County Business Patterns; Bureau of Economic Analysis, Regional Economic Accounts, Gross Domestic Product (GDP) by State, “GDP in current dollars.”']
+        },
+        {
+          url: 'effective-tax-rates-vary-widely-by-industry-and-age-of-firm',
+          name: 'Effective Tax Rates Vary Widely by Industry and Age of Firm',
+          subtitle: 'Total Effective Tax Rates for Select Illinois Business Types, New and Mature Firms (2015)',
+          image: 'images/4-3.svg',
+          format: 'wide',
+          body: ['The Tax Foundation’s Location Matters study calculates the tax bills in every state for 14 hypothetical firms (one new and one mature) in seven different industries. Under the existing Illinois tax code, new and mature firms tend to be treated differently. This feature is most pronounced in the retail industry, among distribution centers, and for capital-intensive manufacturing firms. Ideally, firms in the same industry should face the same effective tax rate, regardless of whether they are new or mature.'],
+          callout: '',
+          source: ['Note: Total effective tax rate only includes state and local tax liability, not federal tax liability.',
+          'Source: Tax Foundation, Location Matters: A Comparative Analysis of State Tax Costs to Business (2015, forthcoming).']
+        },
+        {
+          url: 'corporate-income-tax-rate-has-fluctuated-over-time',
+          name: 'Corporate Income Tax Rate Has Fluctuated over Time',
+          subtitle: 'Illinois’ Total Corporate Income Tax Rate (1969-2015)',
+          image: 'images/4-4.svg',
+          format: 'wide',
+          body: ['Illinois’ corporate income tax is the 17th highest in the nation. The 7.75 percent rate includes two components: the general corporate income tax (with a current rate of 5.25 percent levied on net income) and what is known as the “Personal Property Replacement Tax” (PPRT) (an additional 2.5 percent rate, also levied on net income). The PPRT was added in 1979 to make up for reduced local tax revenues as a result of the removal of business personal property taxes.'],
+          callout: '',
+          source: ['Note: “Total Corporate Income Tax Rate” includes the corporate income tax and Personal Property Replacement Tax.',
+          'Source: Illinois General Assembly, Illinois Compiled Statutes; Illinois Economic and Fiscal Commission, Illinois Corporate Income Tax (July 2002). ']
+        },
+        {
+          url: 'corporate-income-tax-collections-per-person-are-volatile',
+          name: 'Corporate Income Tax Collections per Person Are Volatile',
+          subtitle: 'Total State and Local Corporate Income Tax Collections per Capita, Illinois and U.S. (1977-2012, in 2012 Dollars)',
+          image: 'images/4-5.svg',
+          format: 'wide',
+          body: ['Corporate income tax collections per person in Illinois are currently higher than the U.S. level and have fluctuated widely over time. While corporate income taxes are often a popular tool among state lawmakers for funding state governments, they are an unreliable tool because of their instability over the business cycle. '],
+          callout: '',
+          source: ['Note: Dollar amounts are inflation-adjusted based on the annual average Consumer Price Index for All Urban Consumers (CPI-U) with a 2012 base year. Because local data is unavailable for 2001 and 2003, those points were excluded here, and points surrounding these years are connected with dotted lines.',
+          'Source: Census Bureau, State and Local Government Finances; Census Bureau, American Community Survey; Bureau of Labor Statistics, Consumer Price Indexes. ']
+        },
+        {
+          url: 'illinois-one-of-18-states-that-levies-capital-stock-tax',
+          name: 'Illinois Is One of Only 18 States that Levies a Capital Stock Tax',
+          subtitle: 'States with and without Capital Stock Taxes (as of January 1, 2015)',
+          image: 'images/4-6.svg',
+          format: 'wide',
+          body: ['Less than half of the states in the U.S. levy a capital stock tax, an economically-damaging business tax imposed at a low rate but directly on business capital. These taxes are levied on the net assets or market capitalization of a business entity. The Illinois capital stock tax is formally known as the “Corporate Franchise Tax” and is levied at a rate of 0.1 percent up to a maximum payment value of $2 million, with additional taxes due upon the occurrence of various corporate events (such as a merger or issuance of new stock). Some states have much lower maximum payment amounts, such as Georgia ($5,000), Nebraska ($11,995), Alabama ($15,000), Oklahoma ($20,000), and Delaware ($180,000). Others have no limit.'],
+          callout: '',
+          source: ['Note: Missouri, New York, and Pennsylvania are in the process of phasing out their capital stock taxes. Rhode Island and West Virginia just finished phasing out their capital stock taxes. (*) indicates that taxpayers pay the greater of corporate income tax or capital stock tax liability. See Table 33 of Tax Foundation, Facts & Figures 2015 for more information.',
+          'Source: Tax Foundation, Facts & Figures 2015: How Does Your State Compare?']
         },
         {
           url: 'Chapter-5',
