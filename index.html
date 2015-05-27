@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Business in America Illustrated | Tax Foundation</title>
+    <title>Illinois Illustrated | Tax Foundation</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,14 +36,14 @@
     <meta name="msapplication-TileColor" content="#0094ff">
     <meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png">
     <meta name="theme-color" content="#0094ff">
-    <meta property="og:title" content="Business In America Illustrated" />
+    <meta property="og:title" content="Illinois Illustrated" />
     <meta property="og:image" content="http://interactive.taxfoundation.org/business-in-america/images/BIA-Cover.png" />
-    <meta property="og:description" content="This book is your visual guide to business taxes in America. It discusses the vast array of business types and sizes, the sectors of the economy they serve, and the effects of taxes on U.S. businesses and the people who build, create, and maintain them.">
+    <meta property="og:description" content="Taxes are complicated. Each state’s tax code is a multifaceted system with many moving parts, and Illinois is no exception. This chart book aims to help readers understand Illinois’ overall economy and tax system from a broad perspective.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@taxfoundation">
     <meta name="twitter:creator" content="@taxfoundation">
-    <meta name="twitter:title" content="Business In America Illustrated">
-    <meta name="twitter:description" content="This book is your visual guide to business taxes in America. It discusses the vast array of business types and sizes, the sectors of the economy they serve, and the effects of taxes on U.S. businesses and the people who build, create, and maintain them.">
+    <meta name="twitter:title" content="Illinois Illustrated">
+    <meta name="twitter:description" content="Taxes are complicated. Each state’s tax code is a multifaceted system with many moving parts, and Illinois is no exception. This chart book aims to help readers understand Illinois’ overall economy and tax system from a broad perspective.">
     <meta name="twitter:image:src" content="http://interactive.taxfoundation.org/business-in-america/images/BIA-Cover.png">
   </head>
 
@@ -56,7 +56,7 @@
 
         <nav>
           <core-toolbar>
-            <span>Business In America Illustrated</span>
+            <span>Illinois Illustrated</span>
           </core-toolbar>
 
           <core-menu valueattr="url" selected="{{route}}" on-core-select="{{menuItemSelected}}">
@@ -88,8 +88,8 @@
         <div layout horizontal center-center fit>
           <core-animated-pages id="pages" valueattr="url" selected="{{route}}" transitions="slide-from-right">
 
-            <section url="cover" class="cover">
-              <div class="page-container" style="text-align:center">
+            <section url="cover" class="cover" horizontal layout>
+              <div class="page-container" flex>
                 <img src="images/cover.svg">
                 <p class="share-buttons">
                       <a
@@ -137,41 +137,47 @@
               </div>
             </section>
 
-            <section url="introduction" layout>
-              <div class="page-container">
-                <h1 style="color:#757575;font-size:48px;margin:0 0 20px;">Introduction</h1>
+            <section url="introduction" class="chapter" style="background-image:url(/images/intro.jpg); padding: 0" vertical layout>
+              <div class="page-container" style="background-color:rgba(1,131,143,0.9)" flex>
+                <div style="text-align:center">
+                  <h1>Introduction</h1>
+                </div>
                 <div class="chapter-body">
-                  <span style="color:#085197;font-weight:700"><p>Americans often look at businesses impersonally. We think of them as lifeless entities that earn profits and don’t do much else. When we think of businesses this way, it becomes very easy to think that business taxes are somehow different than other taxes.</p>
-                  <p>But the reality is that businesses are simply groups of people; they are workers, consumers, and shareholders.</p></span>
-                  <p>This means that when we tax businesses, we actually tax people; workers through lower wages, consumers through higher prices, and shareholders through lower returns. Furthermore, the majority of businesses are, in fact, a person that the tax code treats as a business.</p>
-                  <p>In the United States, we place a heavy tax burden on businesses. Our corporations face the highest tax rate and the most burdensome international tax rules in the developed world. Our non-corporate businesses face high tax rates, too, reaching above 50 percent in some states. Furthermore, our tax code actively discourages investment by double taxing that investment at high rates.</p>
-                  <p>America’s high-tax environment stifles the economy and makes work and investment more expensive. This is bad for long-term prosperity.</p>
-                  <p>The good news is that there is a solution. Tax reform that lowers taxes on businesses and investment can create jobs, increase incomes, and lead to higher living standards.</p>
-                  <p>This book is your visual guide to business taxes in America. It discusses the vast array of business types and sizes, the sectors of the economy they serve, and the effects of taxes on U.S. businesses and the people who build, create, and maintain them.</p>
+                  <p>Taxes are complicated. Each state’s tax code is a multifaceted system with many moving parts, and Illinois is no exception. This chart book aims to help readers understand Illinois’ overall economy and tax system from a broad perspective. It also provides detailed illustrations of each of Illinois’ major tax types—individual income taxes, business taxes, sales and excise taxes, and property taxes—to help make the complicated task of understanding the state’s tax code a bit easier.</p>
+                  <p>These charts were compiled by Tax Foundation staff and edited by economist Liz Malm.</p>
+                  <p><strong>Joseph Henchman</strong><br />
+                  Vice President, Legal &amp; State Projects<br />
+                  Tax Foundation</p>
+                  <p><strong>Carol Portman</strong><br />
+                  President<br />
+                  Taxpayers’ Federation of Illinois</p>
                 </div>
               </div>
             </section>
 
             <section url="about" layout>
               <div class="page-container">
-                <h1 style="color:#757575;font-size:48px;margin:0 0 20px;">About This Book</h1>
+                <h1>About This Book</h1>
                 <div>
                   <h2>About the Tax Foundation</h2>
-                  <p>The <a href="http://taxfoundation.org">Tax Foundation</a> is the nation’s leading independent tax policy research organization. Since 1937, our principled research, insightful analysis, and engaged experts have informed smarter tax policy at the federal, state, and local levels.</p>
+                  <p>The <a href="http://taxfoundation.org">Tax Foundation</a> is the nation’s leading independent tax policy research organization. Since 1937, our principled research, insightful analysis, and engaged experts have informed smarter tax policy at the federal, state, and local levels. Our Center for State Tax Policy is routinely relied upon for presentations, testimony, and media appearances on state tax and fiscal policy, and our website is a comprehensive resource for information on tax and spending policy in each U.S. state.</p>
+                  <h2>About the Taxpayers’ Federation of Illinois and the Illinois Fiscal Policy Council</h2>
+                  <p>The Illinois Fiscal Policy Council was created in 1981 by the Taxpayers’ Federation of Illinois, the state’s most respected nonpartisan state and local tax and fiscal policy advocacy organization. The Council is a charitable foundation focusing on state and local government finance, particularly issues relating to how Illinois taxes its citizens and businesses. Its educational materials, studies, and other research papers are geared toward and available to the public, elected officials, and the media.</p>
                   <h2>Attributions</h2>
-                  <p>Scott Hodge<br />
-                  President</p>
-                  <p>Andrew Lundeen<br />
-                  Manager of Federal Projects</p>
-                  <p>Kyle Pomerleau<br />
+                  <h3>Center for State Tax Policy</h3>
+                  <p>Joseph Henchman<br />
+                    Vice President, State Projects</p>
+                  <p>Scott Drenkard<br />
+                    Economist & Manager of State Projects</p>
+                  <p>Liz Malm<br />
                   Economist</p>
-                  <p>Alan Cole<br />
-                  Economist</p>
+                  <p>Jared Walczak<br />
+                  Policy Analyst</p>
                   <h3>Publications</h3>
-                  <p>Donnie Johnson<br />
-                  Publications Manager</p>
+                  <p>Melodie Bowler<br />
+                  Editor</p>
                   <p>Dan Carvajal<br />
-                  Publications Associate, Designer</p>
+                  Production Designer</p>
                   <p>Tom VanAntwerp<br />
                   Director of IT</p>
                 </div>
