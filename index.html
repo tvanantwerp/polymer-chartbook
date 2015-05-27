@@ -37,7 +37,7 @@
     <meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png">
     <meta name="theme-color" content="#0094ff">
     <meta property="og:title" content="Illinois Illustrated" />
-    <meta property="og:image" content="http://interactive.taxfoundation.org/business-in-america/images/BIA-Cover.png" />
+    <meta property="og:image" content="http://interactive.taxfoundation.org/illinois-illustrated/images/cover-meta.jpg" />
     <meta property="og:description" content="Taxes are complicated. Each state’s tax code is a multifaceted system with many moving parts, and Illinois is no exception. This chart book aims to help readers understand Illinois’ overall economy and tax system from a broad perspective.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@taxfoundation">
@@ -137,7 +137,7 @@
               </div>
             </section>
 
-            <section url="introduction" class="chapter" style="background-image:url(/images/intro.jpg); padding: 0" vertical layout>
+            <section style="background-image: url('images/intro.jpg'); padding: 0" url="introduction" class="chapter" vertical layout>
               <div class="page-container" style="background-color:rgba(1,131,143,0.9)" flex>
                 <div style="text-align:center">
                   <h1>Introduction</h1>
@@ -187,7 +187,7 @@
             <template repeat="{{page in pages}}">
 
               <template if="{{page.format == 'chapter'}}">
-                <section style="background-image:url({{page.image}}); padding: 0" class="{{page.format}}" url="{{page.url}}" vertical layout>
+                <section style="background-image:url('{{page.image}}'); padding: 0" class="{{page.format}}" url="{{page.url}}" vertical layout>
                   <div class="page-container" style="background-color:{{page.chapterColor}}" flex>
                     <div style="text-align: center">
                       <h1>{{page.name}}</h1>
@@ -626,7 +626,7 @@
           name: 'Businesses Don’t Just Pay Corporate Income Taxes',
           subtitle: 'Illinois’ Total State and Local Business Tax Liability by Tax Type (FY 2013)',
           image: 'images/4-1.svg',
-          format: 'wide',
+          format: 'square',
           body: ['A common misconception is that corporate income taxes are the only tax cost for businesses. However, businesses pay a number of other taxes, including property taxes on real estate, sales taxes on the goods they use, and individual income taxes on business income (if they’re pass-through entities that file through the individual income tax code rather than the corporate income tax code).',
           'Overall, Illinois businesses paid $32.3 billion in taxes in 2013, with the largest portion going to property taxes. '],
           callout: '',
@@ -637,7 +637,7 @@
           name: 'Businesses Pay Individual Income Taxes Too',
           subtitle: 'Percent of Employer Businesses that Are Pass-Through Entities in Illinois’ Ten Largest Private Industries (2011)',
           image: 'images/4-2.svg',
-          format: 'wide',
+          format: 'square',
           body: ['Firms that pay individual income taxes rather than corporate income taxes are known as “pass-through” or “flow-through” entities because business income “flows through” to the owner’s individual income tax return. Sole proprietorships, partnerships, and S- corporations are all types of pass-throughs.',
           'Sixty-one percent of all employers with payroll in Illinois are pass-through entities, but that share varies for specific sectors of the economy. However, it’s important to note that even though this page breaks down the total number of employer firms, when we consider the aggregate number of workers at businesses with payroll in Illinois, most of them work at traditional corporations (known as C-corporations).'],
           callout: '',

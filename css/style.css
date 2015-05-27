@@ -44,11 +44,13 @@ core-animated-pages > * {
   -ms-user-select: text;
 }
 
-body /deep/ core-scaffold core {
+body /deep/ core-scaffold core,
+core-scaffold {
   background-color: rgb(239,68,56) !important;
 }
 
-body /deep/ core-toolbar {
+body /deep/ core-toolbar,
+core-toolbar {
   background-color: rgb(239,68,56) !important;
   color: #fff !important;
 }
